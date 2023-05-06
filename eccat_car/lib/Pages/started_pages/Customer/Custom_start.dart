@@ -2,9 +2,7 @@ import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
 import '../../../core/colors.dart';
 import '../../../core/space.dart';
-import '../../Health Care/customer_health.dart';
-import '../../Health Care/darkmode.dart';
-import '../../Iot/iot.dart';
+import '../../Health Care/Passenger1.dart';
 
 class CustomerStartPage extends StatefulWidget {
   const CustomerStartPage({super.key});

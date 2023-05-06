@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
+import '../../core/text_style.dart';
 import 'HealthConditions.dart';
 
 class Passenger1 extends StatefulWidget {
@@ -17,7 +18,7 @@ class Passenger1 extends StatefulWidget {
 }
 
 class _Passenger1State extends State<Passenger1> {
- final database = FirebaseDatabase.instance.reference();
+  final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
 
   void initState() {
@@ -48,13 +49,12 @@ class _Passenger1State extends State<Passenger1> {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text("HealthCare",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              )),
+          centerTitle: true,
+          backgroundColor: backgroundColorDark,
+          title: Text(
+            "HealthCare",
+            style: headline1,
+          ),
         ),
         body: Column(children: [
           SizedBox(
@@ -323,4 +323,3 @@ class _Passenger1State extends State<Passenger1> {
     super.deactivate();
   }
 }
-

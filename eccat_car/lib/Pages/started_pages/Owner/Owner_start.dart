@@ -195,19 +195,17 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                 child: LayoutBuilder(builder: (context, cons) {
                   return Row(
                     children: [
-                      //location
+                      //AI
                       InkWell(
-                        onTap: () {Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (builder) => const Car_page()));
+                        onTap: () {
+                          //security page
                         },
                         child: Container(
                           height: (cons.maxWidth - 8) / 2,
                           width: (cons.maxWidth - 8) / 2,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
-                              color: Colors.black87,
+                              color: backgroundColorDark,
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(
                             children: [
@@ -218,14 +216,14 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              'assets/icons/AI3.png'))),
+                                              'assets/icons/security.png'))),
                                 ),
                               ),
                               const SpaceVH(height: 10.0),
                               Expanded(
                                   child: Container(
                                 child: const Text(
-                                  'AI',
+                                  'Security',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -241,7 +239,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                         width: 8,
                       ),
 
-                      //carstatus
+                      //Health
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -255,7 +253,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                           width: (cons.maxWidth - 8) / 2,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
-                              color: backgroundColorDark,
+                              color: Colors.black87,
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(
                             children: [

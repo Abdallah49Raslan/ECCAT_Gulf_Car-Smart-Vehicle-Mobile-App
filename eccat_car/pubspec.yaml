@@ -66,6 +66,7 @@ dependencies:
   awesome_notifications: ^0.7.4+1
   cached_network_image: ^3.2.3
   rename: ^2.1.1
+  flutter_icons: ^1.1.0
   
   
   
