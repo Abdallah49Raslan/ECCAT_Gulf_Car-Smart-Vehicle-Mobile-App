@@ -19,7 +19,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColorLight,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -198,7 +197,8 @@ class _DriverStartPageState extends State<DriverStartPage> {
                     children: [
                       //AI
                       InkWell(
-                        onTap: () {Navigator.push(
+                        onTap: () {
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (builder) => const Car_page()));
@@ -215,7 +215,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                               const SpaceVH(height: 30.0),
                               Expanded(
                                 child: Container(
-                                  width: 50,
+                                  width: 70,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(

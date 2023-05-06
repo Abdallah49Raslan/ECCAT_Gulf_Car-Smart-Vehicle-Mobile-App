@@ -212,11 +212,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                               const SpaceVH(height: 30.0),
                               Expanded(
                                 child: Container(
-                                  width: 50,
+                                  width: 70,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              'assets/icons/security.png'))),
+                                              'assets/icons/camera6.jpg'))),
                                 ),
                               ),
                               const SpaceVH(height: 10.0),
