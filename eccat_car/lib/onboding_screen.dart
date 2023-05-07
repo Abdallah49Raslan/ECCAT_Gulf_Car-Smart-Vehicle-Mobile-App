@@ -10,7 +10,6 @@ import '../../data/demo.dart';
 import 'Pages/Authintication/Sign_in/animated_btn.dart';
 import 'Pages/Authintication/Sign_in/custom_sign_in_dialog.dart';
 
-
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 

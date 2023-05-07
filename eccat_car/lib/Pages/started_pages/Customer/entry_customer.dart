@@ -4,6 +4,7 @@ import 'package:rive/rive.dart';
 import '../../../core/colors.dart';
 import '../../../core/rive_utils.dart';
 import '../../../lists/search.dart';
+import '../../../lists/search_customer.dart';
 import '../../Health Care/darkmode.dart';
 import '../../Iot/iot.dart';
 import '../../User_Profile.dart';
@@ -39,7 +40,7 @@ class _EntryCustomerState extends State<EntryCustomer>
   int currentpages = 0;
   List<Widget> pages = [
     CustomerStartPage(),
-    DataSearchPage(),
+    customer_search(),
     UserInfoPage()
   ];
 

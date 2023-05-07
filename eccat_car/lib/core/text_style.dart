@@ -7,6 +7,12 @@ const TextStyle headPage = TextStyle(
   fontFamily: "Poppins",
 );
 
+const TextStyle headPage2 = TextStyle(
+  fontSize: 60,
+  color: blackBG,
+  fontFamily: "Poppins",
+);
+
 const TextStyle headline = TextStyle(
   fontSize: 36,
   color: redhomeColor,
@@ -18,6 +24,11 @@ const TextStyle headlineDot = TextStyle(
   color: blackBG,
   fontWeight: FontWeight.bold,
 );
+const TextStyle homebutton = TextStyle(
+  fontSize: 16,
+  color: redhomeColor,
+  fontWeight: FontWeight.bold,
+);
 const TextStyle headline1 = TextStyle(
   fontSize: 28,
   color: whiteText,
@@ -27,6 +38,11 @@ const TextStyle headline1 = TextStyle(
 const TextStyle headline2 = TextStyle(
   fontSize: 20,
   color: whiteText,
+  fontWeight: FontWeight.w600,
+);
+const TextStyle headline22 = TextStyle(
+  fontSize: 22,
+  color: blackBG,
   fontWeight: FontWeight.w600,
 );
 const TextStyle headline3 = TextStyle(

@@ -41,7 +41,7 @@ class AnimatedBtn extends StatelessWidget {
                   SizedBox(width: 8),
                   Text(
                     "Start The Car App",
-                    style: headlineDot,
+                    style: homebutton,
                   ),
                 ],
               ),

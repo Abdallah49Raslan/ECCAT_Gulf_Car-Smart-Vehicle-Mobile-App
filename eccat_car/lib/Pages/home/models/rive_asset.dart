@@ -63,17 +63,17 @@ List<RiveAsset> sideMenus = [
       // Navigate to the Home screen
     },
   ),
-  RiveAsset(
-    "assets/RiveAssets/icons.riv",
-    artboard: "SEARCH",
-    stateMachineName: "SEARCH_Interactivity",
-    title: "Search",
-    onTap: (BuildContext context) {
-      // Navigate to the Search screen
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => DataSearchPage()));
-    },
-  ),
+  // RiveAsset(
+  //   "assets/RiveAssets/icons.riv",
+  //   artboard: "SEARCH",
+  //   stateMachineName: "SEARCH_Interactivity",
+  //   title: "Search",
+  //   onTap: (BuildContext context) {
+  //     // Navigate to the Search screen
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => DataSearchPage()));
+  //   },
+  // ),
   // RiveAsset(
   //   "assets/RiveAssets/icons.riv",
   //   artboard: "LIKE/STAR",

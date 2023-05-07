@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: EntryOwner(),
+      child: OnboardingScreen(),
     );
   }
 }
