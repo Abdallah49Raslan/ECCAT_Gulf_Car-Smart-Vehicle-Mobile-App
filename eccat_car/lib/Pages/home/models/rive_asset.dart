@@ -14,7 +14,8 @@ class RiveAsset {
       required this.stateMachineName,
       required this.title,
       this.input,
-      this.onTap}); // Add default value of null for onTap
+      this.onTap}); 
+  
 
   set setInput(SMIBool status) {
     input = status;
@@ -54,11 +55,13 @@ List<RiveAsset> bottomNavs = [
   }),
 ];
 
-List<Widget> NavIcons = [
-  SvgPicture.asset("assets/icons/Car.svg"),
-  SvgPicture.asset("assets/icons/Car.svg"),
-  SvgPicture.asset("assets/icons/Car.svg")
-];
+// List<Widget> NavIcons = [
+//   SvgPicture.asset("assets/icons/home.svg"),
+//   SvgPicture.asset("assets/icons/Car.svg"),
+//   SvgPicture.asset("assets/icons/Health-Icon-1.svg.svg"),
+//   SvgPicture.asset("assets/icons/Charge.svg"),
+//   SvgPicture.asset("assets/icons/user.svg")
+// ];
 
 List<RiveAsset> sideMenus = [
   RiveAsset(

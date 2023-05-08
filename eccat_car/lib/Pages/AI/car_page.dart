@@ -1,15 +1,21 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, camel_case_types, prefer_final_fields, unused_field, avoid_single_cascade_in_expression_statements
 
 import 'dart:async';
+
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:eccat_car/Pages/AI/controller/controller.dart';
+import 'package:eccat_car/homescren.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
+
 import '../../core/colors.dart';
 import '../../core/text_style.dart';
-import 'controller/controller.dart';
 
 class Car_page extends StatefulWidget {
   const Car_page({super.key});
@@ -35,7 +41,6 @@ class _Car_pageState extends State<Car_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: blackBG,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: backgroundColorDark,
@@ -44,6 +49,7 @@ class _Car_pageState extends State<Car_page> {
           style: headline1,
         ),
       ),
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, BoxConstraints) {
@@ -60,9 +66,11 @@ class _Car_pageState extends State<Car_page> {
                     }
 
                     return Builder(builder: (context) {
-                      // Timer(Duration(seconds: 7), () {
-                      //   Get.offAll(homescren());
-                      // });
+                      Timer(Duration(seconds: 7), () {
+                        Get.offAll(homescren(
+                          initialIndex: 2,
+                        ));
+                      });
                       return Padding(
                         padding: EdgeInsets.all(5),
                         child: Center(
@@ -165,7 +173,7 @@ class _Car_pageState extends State<Car_page> {
                       Animation<double> animation, int index) {
                     Timer(Duration(seconds: 7), () {
                       if (snapshot.child('action1').value == '222') {
-                        // reference.remove();
+                        reference.remove();
                       }
                     });
 
@@ -183,7 +191,7 @@ class _Car_pageState extends State<Car_page> {
                   itemBuilder: (BuildContext context, DataSnapshot snapshot,
                       Animation<double> animation, int index) {
                     if (snapshot.child('LeftAction').value == '444') {
-                      _controller.sendNotification();
+                      // _controller.rightNotification();
                     }
 
                     return Builder(builder: (context) {
@@ -199,7 +207,9 @@ class _Car_pageState extends State<Car_page> {
                       // )..show();
 
                       Timer(Duration(seconds: 7), () {
-                        Get.offAll(Car_page());
+                        Get.offAll(homescren(
+                          initialIndex: 2,
+                        ));
                       });
                       return Container(
                         alignment: Alignment.topRight,
@@ -244,7 +254,7 @@ class _Car_pageState extends State<Car_page> {
                   itemBuilder: (BuildContext context, DataSnapshot snapshot,
                       Animation<double> animation, int index) {
                     if (snapshot.child('RightAction').value == '333') {
-                      _controller.sendNotification();
+                      // _controller.setNotification();
                     }
 
                     return Builder(builder: (context) {
@@ -260,7 +270,9 @@ class _Car_pageState extends State<Car_page> {
                       // )..show();
 
                       Timer(Duration(seconds: 7), () {
-                        Get.offAll(Car_page());
+                        Get.offAll(homescren(
+                          initialIndex: 2,
+                        ));
                       });
                       return Container(
                         alignment: Alignment.topLeft,
@@ -290,7 +302,7 @@ class _Car_pageState extends State<Car_page> {
                       Animation<double> animation, int index) {
                     Timer(Duration(seconds: 7), () {
                       if (snapshot.child('RightAction').value == '333') {
-                        Left.remove();
+                        Right.remove();
                       }
                     });
 
@@ -427,8 +439,18 @@ class _Car_pageState extends State<Car_page> {
                             onPressed: () {
                               setState(() {
                                 leftside = !leftside;
-                                _controller.leftNotification;
-                                Timer(Duration(seconds: 5), () {});
+                                _controller.setNotification();
+                                Timer(Duration(seconds: 7), () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const homescren(
+                                              initialIndex: 1,
+                                            )),
+                                  );
+                                  // Get.offAll(homescren(initialIndex: 2,));
+                                });
+                                //                 // Timer(Duration(seconds: 5), () {});
                               });
                             },
                             child: Icon(
@@ -441,9 +463,22 @@ class _Car_pageState extends State<Car_page> {
                               _controller.sendNotification();
                               setState(() {
                                 rightside = !rightside;
+                                Timer(Duration(seconds: 7), () {
+                                  Get.offAll(Car_page());
+                                });
                               });
                             },
                             child: Text('Ai'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              _controller.rightNotification();
+
+                              setState(() {
+                                rightside = !rightside;
+                              });
+                            },
+                            child: Text('Right'),
                           ),
                         ],
                       )

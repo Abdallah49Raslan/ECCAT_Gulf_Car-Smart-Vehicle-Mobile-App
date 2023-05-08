@@ -3,8 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../Pages/started_pages/Customer/entry_customer.dart';
+import '../Pages/started_pages/Driver/driverstart.dart';
 import '../Pages/started_pages/Driver/entry_Driver.dart';
 import '../Pages/started_pages/Owner/entry_Owner.dart';
+import '../homescren.dart';
 import '../onboding_screen.dart';
 
 class LoginLogic extends StatelessWidget {
@@ -80,7 +82,7 @@ class LoginLogic extends StatelessWidget {
           } else if (user == 'Driver') {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const EntryDriver()),
+              MaterialPageRoute(builder: (context) => const homescren(initialIndex: 2,)),
             );
           } else if (user == 'Customer') {
             Navigator.pushReplacement(

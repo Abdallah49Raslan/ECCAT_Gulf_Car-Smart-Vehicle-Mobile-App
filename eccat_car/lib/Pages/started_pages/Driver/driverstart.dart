@@ -1,4 +1,6 @@
+import 'package:eccat_car/homescren.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../core/colors.dart';
 import '../../../core/space.dart';
 import '../../AI/car_page.dart';
@@ -201,7 +203,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => const Car_page()));
+                                  builder: (builder) => const homescren(initialIndex: 2,)));
                         },
                         child: Container(
                           height: (cons.maxWidth - 8) / 2,
@@ -284,7 +286,15 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
-                              ))
+                              )),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    Get.to(homescren(initialIndex: 2,));
+                                  });
+                                },
+                                child: Text('Ai'),
+                              ),
                             ],
                           ),
                         ),
