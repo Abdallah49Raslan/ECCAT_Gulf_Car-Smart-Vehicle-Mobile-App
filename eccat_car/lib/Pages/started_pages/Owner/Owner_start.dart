@@ -5,6 +5,7 @@ import '../../../core/space.dart';
 import '../../AI/car_page.dart';
 import '../../Health Care/darkmode.dart';
 import '../../Iot/iot.dart';
+import '../../Security/fingerprint.dart';
 
 class OwnerStartPage extends StatefulWidget {
   const OwnerStartPage({super.key});
@@ -198,7 +199,10 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                       //AI
                       InkWell(
                         onTap: () {
-                          //security page
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (builder) =>  Face_Reco()));
                         },
                         child: Container(
                           height: (cons.maxWidth - 8) / 2,

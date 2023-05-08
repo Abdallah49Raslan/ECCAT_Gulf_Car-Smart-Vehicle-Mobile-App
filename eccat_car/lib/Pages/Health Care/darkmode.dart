@@ -70,7 +70,7 @@ class _darkmodeState extends State<HealthCareDriver> {
     double screenHeight = MediaQuery.of(context).size.height;
     final TestButtonREf = database.child("TestNow");
     return Scaffold(
-        backgroundColor: blackBG,
+        backgroundColor: Colors.black,
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: backgroundColorDark,
@@ -86,7 +86,7 @@ class _darkmodeState extends State<HealthCareDriver> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height - 220,
+              height: MediaQuery.of(context).size.height - 200,
               margin: EdgeInsets.only(top: 10),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -138,9 +138,10 @@ class _darkmodeState extends State<HealthCareDriver> {
           ],
         ));
   }
-
-  void deactivate() {
+  
+@override
+  void dispose() {
     outputstream.cancel();
-    super.deactivate();
+    super.dispose();
   }
 }

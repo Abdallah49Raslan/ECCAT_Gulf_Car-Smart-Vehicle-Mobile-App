@@ -27,7 +27,7 @@ class EntryCustomer extends StatefulWidget {
 
 class _EntryCustomerState extends State<EntryCustomer>
     with SingleTickerProviderStateMixin {
-  RiveAsset selectedBottomNav = bottomNavs.first;
+  Widget selectedBottomNav = NavIcons.first;
 
   late AnimationController _animationController;
   late Animation<double> animation;
@@ -38,11 +38,7 @@ class _EntryCustomerState extends State<EntryCustomer>
 
   bool isSideMenuClosed = true;
   int currentpages = 0;
-  List<Widget> pages = [
-    CustomerStartPage(),
-    customer_search(),
-    UserInfoPage()
-  ];
+  List<Widget> pages = [CustomerStartPage(), customer_search(), UserInfoPage()];
 
   @override
   void initState() {
@@ -148,46 +144,47 @@ class _EntryCustomerState extends State<EntryCustomer>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ...List.generate(
-                  bottomNavs.length,
+                  NavIcons.length,
                   (index) => GestureDetector(
                     onTap: () {
-                      bottomNavs[index].input!.change(true);
-                      if (bottomNavs[index] != selectedBottomNav) {
+                      // NavIcons[index].input!.change(true);
+                      if (NavIcons[index] != selectedBottomNav) {
                         setState(() {
-                          selectedBottomNav = bottomNavs[index];
+                          selectedBottomNav = NavIcons[index];
                           currentpages = index;
                         });
                       }
                       Future.delayed(const Duration(seconds: 1), () {
-                        bottomNavs[index].input!.change(false);
+                        // NavIcons[index].input!.change(false);
                       });
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         AnimatedBar(
-                            isActive: bottomNavs[index] == selectedBottomNav),
+                            isActive: NavIcons[index] == selectedBottomNav),
                         SizedBox(
                           height: 36,
                           width: 36,
-                          child: Opacity(
-                            opacity: bottomNavs[index] == selectedBottomNav
-                                ? 1
-                                : 0.5,
-                            child: RiveAnimation.asset(
-                              bottomNavs.first.src,
-                              artboard: bottomNavs[index].artboard,
-                              onInit: (artboard) {
-                                StateMachineController controller =
-                                    RiveUtils.getRiveController(artboard,
-                                        stateMachineName:
-                                            bottomNavs[index].stateMachineName);
+                          child: selectedBottomNav,
+                          // child: Opacity(
+                          //   opacity: NavIcons[index] == selectedBottomNav
+                          //       ? 1
+                          //       : 0.5,
+                          //   child: RiveAnimation.asset(
+                          //     NavIcons.first.src,
+                          //     artboard: NavIcons[index].artboard,
+                          //     onInit: (artboard) {
+                          //       StateMachineController controller =
+                          //           RiveUtils.getRiveController(artboard,
+                          //               stateMachineName:
+                          //                   NavIcons[index].stateMachineName);
 
-                                bottomNavs[index].input =
-                                    controller.findSMI("active") as SMIBool;
-                              },
-                            ),
-                          ),
+                          //       NavIcons[index].input =
+                          //           controller.findSMI("active") as SMIBool;
+                          //     },
+                          //   ),
+                          // ),
                         ),
                       ],
                     ),

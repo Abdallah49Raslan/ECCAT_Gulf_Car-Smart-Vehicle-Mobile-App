@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 import '../../../lists/chat.dart';
 import '../../../lists/search.dart';
@@ -51,6 +52,12 @@ List<RiveAsset> bottomNavs = [
       title: "Profile", onTap: (BuildContext context) {
     // Navigate to the Profile screen
   }),
+];
+
+List<Widget> NavIcons = [
+  SvgPicture.asset("assets/icons/Car.svg"),
+  SvgPicture.asset("assets/icons/Car.svg"),
+  SvgPicture.asset("assets/icons/Car.svg")
 ];
 
 List<RiveAsset> sideMenus = [
