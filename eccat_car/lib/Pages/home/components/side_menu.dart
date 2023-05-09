@@ -65,18 +65,21 @@ class _SideMenuState extends State<SideMenu> {
                           builder: (context, snapshot) {
                             if (!snapshot.hasData) {
                               return const CircleAvatar(
+                                radius: 40,
                                 backgroundColor: Colors.white24,
                                 child: Icon(
                                   CupertinoIcons.person,
                                   color: Colors.white,
+                                  size: 40,
                                 ),
                               );
                             }
                             final userData =
                                 snapshot.data!.data() as Map<String, dynamic>?;
                             final profilePicUrl =
-                                userData?['profilePicUrl'] as String?;
+                                userData?['photoUrl'] as String?;
                             return CircleAvatar(
+                              radius: 40,
                               backgroundImage: profilePicUrl != null
                                   ? NetworkImage(profilePicUrl)
                                   : null,
@@ -85,6 +88,7 @@ class _SideMenuState extends State<SideMenu> {
                                   ? const Icon(
                                       CupertinoIcons.person,
                                       color: Colors.white,
+                                      size: 40,
                                     )
                                   : null,
                             );
@@ -96,9 +100,9 @@ class _SideMenuState extends State<SideMenu> {
                       ),
                       Expanded(
                         child: Text(
-                          ' ${userName ?? ''}!',
+                          ' ${userName ?? ''}',
                           style: headline2.copyWith(
-                            fontSize: 20.0,
+                            fontSize: 28.0,
                           ),
                         ),
                       ),
@@ -150,32 +154,32 @@ class _SideMenuState extends State<SideMenu> {
               //         .copyWith(color: Colors.white70),
               //   ),
               // ),
-              ...sideMenu2.map(
-                (menu) => SideMenuTile(
-                  menu: menu,
-                  riveonInit: (artboard) {
-                    // Let me show you if user click on the menu how to show the animation
-                    StateMachineController controller =
-                        RiveUtils.getRiveController(artboard,
-                            stateMachineName: menu.stateMachineName);
-                    menu.input = controller.findSMI("active") as SMIBool;
-                    // See as we click them it start animate
-                  },
-                  press: () {
-                    menu.input!.change(true);
-                    Future.delayed(const Duration(seconds: 1), () {
-                      menu.input!.change(false);
-                      menu.onTap?.call(context);
-                    });
-                    setState(() {
-                      selectedMenu = menu;
-                    });
-                  },
-                  isActive: selectedMenu == menu,
-                ),
-              ),
+              // ...sideMenu2.map(
+              //   (menu) => SideMenuTile(
+              //     menu: menu,
+              //     riveonInit: (artboard) {
+              //       // Let me show you if user click on the menu how to show the animation
+              //       StateMachineController controller =
+              //           RiveUtils.getRiveController(artboard,
+              //               stateMachineName: menu.stateMachineName);
+              //       menu.input = controller.findSMI("active") as SMIBool;
+              //       // See as we click them it start animate
+              //     },
+              //     press: () {
+              //       menu.input!.change(true);
+              //       Future.delayed(const Duration(seconds: 1), () {
+              //         menu.input!.change(false);
+              //         menu.onTap?.call(context);
+              //       });
+              //       setState(() {
+              //         selectedMenu = menu;
+              //       });
+              //     },
+              //     isActive: selectedMenu == menu,
+              //   ),
+              // ),
 
-              const Spacer(flex: 3),
+              const Spacer(flex: 6),
               Mainbutton(
                 onTap: () {
                   FirebaseAuth.instance.signOut();

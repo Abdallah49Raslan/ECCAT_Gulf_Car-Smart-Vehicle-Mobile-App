@@ -79,7 +79,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           : null,
                   child: GestureDetector(
                     onTap: _getImage,
-                    child: _imageFile == null && urlPhoto == null
+                    child: _imageFile == null && urlPhoto != null
                         ? const Icon(Icons.person, size: 60)
                         : SizedBox(),
                   ),
@@ -91,6 +91,16 @@ class _UserInfoPageState extends State<UserInfoPage> {
                       ? const CircularProgressIndicator()
                       : const Text('Update Profile Picture'),
                 ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
+                  ),
+                  onPressed: _isLoading ? null : _removeImage,
+                  child: _isLoading
+                      ? const CircularProgressIndicator()
+                      : const Text('Remove Profile Picture'),
+                ),
+
                 Text(
                   'Name:',
                   style: headline2,
@@ -245,6 +255,43 @@ class _UserInfoPageState extends State<UserInfoPage> {
       setState(() {
         _isLoading = false;
       });
+    }
+  }
+
+  void _removeImage() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      // Delete the profile picture from Firebase Storage
+      if (urlPhoto != null) {
+        await _storage.refFromURL(urlPhoto!).delete();
+      }
+
+      // Remove the profile picture URL from the Firestore document
+      await _firestore
+          .collection('users')
+          .doc(_user.uid)
+          .update({'photoUrl': null});
+
+      setState(() {
+        _imageFile = null;
+        urlPhoto = null;
+        _isLoading = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Profile picture removed')),
+      );
+    } catch (error) {
+      setState(() {
+        _isLoading = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to remove profile picture')),
+      );
     }
   }
 

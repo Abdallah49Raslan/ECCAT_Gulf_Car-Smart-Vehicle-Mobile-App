@@ -41,18 +41,18 @@ print('2');
         if (userRole == 'Owner') {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const EntryOwner()),
+            MaterialPageRoute(builder: (context) => const EntryOwner(initialIndex: 2,)),
           );
         } else if (userRole == 'Driver') {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const EntryDriver()),
+            MaterialPageRoute(builder: (context) => const EntryDriver(initialIndex: 2,)),
           );
           print('3');
         } else if (userRole == 'Customer') {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const EntryCustomer()),
+            MaterialPageRoute(builder: (context) => const EntryCustomer(initialIndex: 2,)),
           );
         } else {
           print('4');

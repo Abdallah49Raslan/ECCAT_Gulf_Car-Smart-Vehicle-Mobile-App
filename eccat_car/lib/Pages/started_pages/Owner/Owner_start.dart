@@ -5,7 +5,7 @@ import '../../../core/space.dart';
 import '../../AI/car_page.dart';
 import '../../Health Care/darkmode.dart';
 import '../../Iot/iot.dart';
-import '../../Security/fingerprint.dart';
+import '../../Security/Face_reco.dart';
 
 class OwnerStartPage extends StatefulWidget {
   const OwnerStartPage({super.key});

@@ -6,8 +6,6 @@ import '../Pages/Authintication/sign_up.dart';
 import '../Pages/started_pages/Customer/entry_customer.dart';
 import '../Pages/started_pages/Driver/entry_Driver.dart';
 
-
-
 class SignUpLogic extends StatelessWidget {
   final String email;
   final String password;
@@ -15,19 +13,18 @@ class SignUpLogic extends StatelessWidget {
   final String phone;
   final String role;
   final String? personId;
-  final String ?driverLicense;
+  final String? driverLicense;
 
   const SignUpLogic({
-  Key? key,
-  required this.email,
-  required this.password,
-  required this.name,
-  required this.phone,
-  required this.role,
-  this.personId, // make personId optional
-  this.driverLicense, // make driverLicense optional
-}) : super(key: key);
-
+    Key? key,
+    required this.email,
+    required this.password,
+    required this.name,
+    required this.phone,
+    required this.role,
+    this.personId, // make personId optional
+    this.driverLicense, // make driverLicense optional
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +39,13 @@ class SignUpLogic extends StatelessWidget {
         } else if (snapshot.hasData && snapshot.data!) {
           // Check the user role and navigate to the appropriate start page
           if (role == 'Driver') {
-            return const EntryDriver();
+            return const EntryDriver(
+              initialIndex: 2,
+            );
           } else if (role == 'Customer') {
-            return const EntryCustomer();
+            return const EntryCustomer(
+              initialIndex: 1,
+            );
           }
         } else if (snapshot.hasError) {
           // Handle any errors that may occur during sign-up

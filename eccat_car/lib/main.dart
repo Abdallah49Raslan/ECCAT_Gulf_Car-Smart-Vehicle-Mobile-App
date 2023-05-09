@@ -2,10 +2,8 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:eccat_car/Pages/AI/controller/controller.dart';
 import 'package:eccat_car/Pages/AI/controller/controller_bindings.dart';
-import 'package:eccat_car/Pages/started_pages/Driver/driverstart.dart';
+import 'package:eccat_car/Pages/started_pages/Driver/Driver_start.dart';
 import 'package:eccat_car/firebase_options.dart';
-import 'package:eccat_car/homescren.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

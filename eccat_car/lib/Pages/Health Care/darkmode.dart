@@ -71,14 +71,6 @@ class _darkmodeState extends State<HealthCareDriver> {
     final TestButtonREf = database.child("TestNow");
     return Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: backgroundColorDark,
-          title: Text(
-            "HealthCare",
-            style: headline1,
-          ),
-        ),
         body: Column(
           children: [
             SizedBox(
@@ -138,8 +130,8 @@ class _darkmodeState extends State<HealthCareDriver> {
           ],
         ));
   }
-  
-@override
+
+  @override
   void dispose() {
     outputstream.cancel();
     super.dispose();

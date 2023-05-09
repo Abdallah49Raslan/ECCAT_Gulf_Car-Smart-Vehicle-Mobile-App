@@ -1,11 +1,8 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, camel_case_types, prefer_final_fields, unused_field, avoid_single_cascade_in_expression_statements
-
 import 'dart:async';
-
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:eccat_car/Pages/AI/controller/controller.dart';
-import 'package:eccat_car/homescren.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +13,7 @@ import 'package:get/instance_manager.dart';
 
 import '../../core/colors.dart';
 import '../../core/text_style.dart';
+import '../started_pages/Driver/entry_Driver.dart';
 
 class Car_page extends StatefulWidget {
   const Car_page({super.key});
@@ -41,14 +39,6 @@ class _Car_pageState extends State<Car_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: backgroundColorDark,
-        title: Text(
-          "AI",
-          style: headline1,
-        ),
-      ),
       backgroundColor: Colors.black,
       body: SafeArea(
         child: LayoutBuilder(
@@ -67,9 +57,13 @@ class _Car_pageState extends State<Car_page> {
 
                     return Builder(builder: (context) {
                       Timer(Duration(seconds: 7), () {
-                        Get.offAll(homescren(
-                          initialIndex: 2,
-                        ));
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EntryDriver(
+                                    initialIndex: 0,
+                                  )),
+                        );
                       });
                       return Padding(
                         padding: EdgeInsets.all(5),
@@ -207,9 +201,13 @@ class _Car_pageState extends State<Car_page> {
                       // )..show();
 
                       Timer(Duration(seconds: 7), () {
-                        Get.offAll(homescren(
-                          initialIndex: 2,
-                        ));
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EntryDriver(
+                                    initialIndex: 0,
+                                  )),
+                        );
                       });
                       return Container(
                         alignment: Alignment.topRight,
@@ -270,9 +268,13 @@ class _Car_pageState extends State<Car_page> {
                       // )..show();
 
                       Timer(Duration(seconds: 7), () {
-                        Get.offAll(homescren(
-                          initialIndex: 2,
-                        ));
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EntryDriver(
+                                    initialIndex: 0,
+                                  )),
+                        );
                       });
                       return Container(
                         alignment: Alignment.topLeft,
@@ -444,11 +446,11 @@ class _Car_pageState extends State<Car_page> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const homescren(
-                                              initialIndex: 1,
+                                        builder: (context) => const EntryDriver(
+                                              initialIndex: 0,
                                             )),
                                   );
-                                  // Get.offAll(homescren(initialIndex: 2,));
+                                  // Get.offAll(EntryDriver(initialIndex: 2,));
                                 });
                                 //                 // Timer(Duration(seconds: 5), () {});
                               });
@@ -464,7 +466,13 @@ class _Car_pageState extends State<Car_page> {
                               setState(() {
                                 rightside = !rightside;
                                 Timer(Duration(seconds: 7), () {
-                                  Get.offAll(Car_page());
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const EntryDriver(
+                                              initialIndex: 0,
+                                            )),
+                                  );
                                 });
                               });
                             },

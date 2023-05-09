@@ -1,16 +1,26 @@
 import 'dart:math';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:eccat_car/Pages/home/components/animated_bar.dart';
+import 'package:eccat_car/Pages/started_pages/Customer/Custom_start.dart';
+import 'package:eccat_car/Pages/started_pages/Driver/Driver_start.dart';
+import 'package:eccat_car/Pages/started_pages/Owner/Owner_start.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 import '../../../core/colors.dart';
 import '../../../core/rive_utils.dart';
+import '../../../functions/alertexitapp.dart';
 import '../../../lists/search.dart';
+import '../../AI/car_page.dart';
+import '../../AI/search_page.dart';
+import '../../Health Care/Passenger1.dart';
 import '../../Health Care/darkmode.dart';
+import '../../Security/Face_reco.dart';
 import '../../User_Profile.dart';
 import '../../home/components/side_menu.dart';
 import '../../home/models/menu_btn.dart';
 import '../../home/models/rive_asset.dart';
-import 'Owner_start.dart';
 import '../../Iot/iot.dart';
 
 // We are done with our 5th and last episode
@@ -18,7 +28,9 @@ import '../../Iot/iot.dart';
 // Bye
 
 class EntryOwner extends StatefulWidget {
-  const EntryOwner({super.key});
+  final int initialIndex;
+
+  const EntryOwner({Key? key, required this.initialIndex}) : super(key: key);
 
   @override
   State<EntryOwner> createState() => _EntryOwnerState();
@@ -26,7 +38,7 @@ class EntryOwner extends StatefulWidget {
 
 class _EntryOwnerState extends State<EntryOwner>
     with SingleTickerProviderStateMixin {
-  RiveAsset selectedBottomNav = bottomNavs.first;
+  final navigationKey = GlobalKey<CurvedNavigationBarState>();
 
   late AnimationController _animationController;
   late Animation<double> animation;
@@ -37,14 +49,38 @@ class _EntryOwnerState extends State<EntryOwner>
 
   bool isSideMenuClosed = true;
   int currentpages = 0;
-  List<Widget> pages = [
+  final screens = [
+    Face_Reco(),
+    HealthCareDriver(),
     OwnerStartPage(),
-    DataSearchPage(),
-    UserInfoPage()
+    AboutAPP(),
   ];
+
+  final items = <Widget>[
+    Icon(
+      CupertinoIcons.video_camera_solid,
+      size: 30.h,
+    ),
+    Icon(
+      CupertinoIcons.heart_slash_circle_fill,
+      size: 30.h,
+    ),
+    Icon(
+      Icons.home,
+      size: 30.h,
+    ),
+    Icon(
+      Icons.app_blocking,
+      size: 30.h,
+    ),
+  ];
+
+  late int index;
 
   @override
   void initState() {
+    super.initState();
+    index = widget.initialIndex;
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
@@ -97,7 +133,7 @@ class _EntryOwnerState extends State<EntryOwner>
                 scale: scalAnimation.value,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(24)),
-                  child: pages[currentpages],
+                  child: screens[index],
                 ),
               ),
             ),
@@ -133,67 +169,26 @@ class _EntryOwnerState extends State<EntryOwner>
           ),
         ],
       ),
-      bottomNavigationBar: Transform.translate(
-        offset: Offset(0, 100 * animation.value),
-        child: SafeArea(
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.symmetric(horizontal: 24),
-            decoration: BoxDecoration(
-              color: backgroundColor2.withOpacity(0.8),
-              borderRadius: const BorderRadius.all(Radius.circular(24)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ...List.generate(
-                  bottomNavs.length,
-                  (index) => GestureDetector(
-                    onTap: () {
-                      bottomNavs[index].input!.change(true);
-                      if (bottomNavs[index] != selectedBottomNav) {
-                        setState(() {
-                          selectedBottomNav = bottomNavs[index];
-                          currentpages = index;
-                        });
-                      }
-                      Future.delayed(const Duration(seconds: 1), () {
-                        bottomNavs[index].input!.change(false);
-                      });
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        AnimatedBar(
-                            isActive: bottomNavs[index] == selectedBottomNav),
-                        SizedBox(
-                          height: 36,
-                          width: 36,
-                          child: Opacity(
-                            opacity: bottomNavs[index] == selectedBottomNav
-                                ? 1
-                                : 0.5,
-                            child: RiveAnimation.asset(
-                              bottomNavs.first.src,
-                              artboard: bottomNavs[index].artboard,
-                              onInit: (artboard) {
-                                StateMachineController controller =
-                                    RiveUtils.getRiveController(artboard,
-                                        stateMachineName:
-                                            bottomNavs[index].stateMachineName);
-
-                                bottomNavs[index].input =
-                                    controller.findSMI("active") as SMIBool;
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context)
+            .copyWith(iconTheme: IconThemeData(color: Colors.white)),
+        child: WillPopScope(
+          onWillPop: alertExitApp,
+          child: CurvedNavigationBar(
+            key: navigationKey,
+            color: Colors.black,
+            buttonBackgroundColor: Colors.blue,
+            backgroundColor: Colors.transparent,
+            height: 60,
+            animationCurve: Curves.easeInOut,
+            animationDuration: Duration(milliseconds: 600),
+            items: items,
+            index: index,
+            onTap: (index) {
+              setState(() {
+                this.index = index;
+              });
+            },
           ),
         ),
       ),

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 import '../../../lists/chat.dart';
+import '../../../lists/notificatoins.dart';
 import '../../../lists/search.dart';
+import '../../AI/search_page.dart';
 
 class RiveAsset {
   final String artboard, stateMachineName, title, src;
@@ -14,8 +16,7 @@ class RiveAsset {
       required this.stateMachineName,
       required this.title,
       this.input,
-      this.onTap}); 
-  
+      this.onTap});
 
   set setInput(SMIBool status) {
     input = status;
@@ -73,17 +74,7 @@ List<RiveAsset> sideMenus = [
       // Navigate to the Home screen
     },
   ),
-  // RiveAsset(
-  //   "assets/RiveAssets/icons.riv",
-  //   artboard: "SEARCH",
-  //   stateMachineName: "SEARCH_Interactivity",
-  //   title: "Search",
-  //   onTap: (BuildContext context) {
-  //     // Navigate to the Search screen
-  //     Navigator.push(
-  //         context, MaterialPageRoute(builder: (context) => DataSearchPage()));
-  //   },
-  // ),
+
   // RiveAsset(
   //   "assets/RiveAssets/icons.riv",
   //   artboard: "LIKE/STAR",
@@ -110,7 +101,18 @@ List<RiveAsset> sideMenus = [
     stateMachineName: "BELL_Interactivity",
     title: "Notification",
     onTap: (BuildContext context) {
-      // Navigate to the Favorites screen
+      // Navigator.push(context,
+      //     MaterialPageRoute(builder: (context) => NotificationsPage()));
+    },
+  ),
+  RiveAsset(
+    "assets/RiveAssets/icons.riv",
+    artboard: "SETTINGS",
+    stateMachineName: "SETTINGS_Interactivity",
+    title: "About App",
+    onTap: (BuildContext context) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => AboutAPP()));
     },
   ),
 ];
