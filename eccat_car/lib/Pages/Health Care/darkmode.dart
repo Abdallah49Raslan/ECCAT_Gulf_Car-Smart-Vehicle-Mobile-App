@@ -68,7 +68,6 @@ class _darkmodeState extends State<HealthCareDriver> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    final TestButtonREf = database.child("TestNow");
     return Scaffold(
         backgroundColor: Colors.black,
         body: Column(
@@ -77,8 +76,8 @@ class _darkmodeState extends State<HealthCareDriver> {
               height: 30,
             ),
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height - 200,
+              width: screenWidth,
+              height: screenHeight,
               margin: EdgeInsets.only(top: 10),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -103,30 +102,6 @@ class _darkmodeState extends State<HealthCareDriver> {
                 ],
               ),
             ),
-            Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 10,
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      TestButtonREf.set({'TestButton': 'on'});
-                    },
-                    child: Text(
-                      "Test Now",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side:
-                              BorderSide(width: 2, color: Color(0XFFC6372A)))),
-                    ),
-                  ),
-                ))
           ],
         ));
   }
