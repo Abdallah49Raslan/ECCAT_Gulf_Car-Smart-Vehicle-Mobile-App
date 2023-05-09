@@ -51,7 +51,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
               //car icon in above of page
               Container(
                   width: double.infinity,
-                  height: 300,
+                  height: MediaQuery.of(context).size.height / 2,
                   // decoration: const BoxDecoration(
                   //     color: backgroundColorLight,
                   //     borderRadius: BorderRadius.only(
