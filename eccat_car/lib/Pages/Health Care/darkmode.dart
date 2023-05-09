@@ -77,7 +77,6 @@ class _darkmodeState extends State<HealthCareDriver> {
             ),
             Container(
               width: screenWidth,
-              height: screenHeight,
               margin: EdgeInsets.only(top: 10),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
