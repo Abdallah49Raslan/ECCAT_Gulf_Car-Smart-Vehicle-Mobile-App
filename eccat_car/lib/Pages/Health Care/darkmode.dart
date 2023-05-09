@@ -73,7 +73,7 @@ class _darkmodeState extends State<HealthCareDriver> {
         body: Column(
           children: [
             SizedBox(
-              height: 30,
+              height: 70,
             ),
             Container(
               width: screenWidth,
