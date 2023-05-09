@@ -127,9 +127,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: EntryOwner(
-        initialIndex: 2,
-      ),
+      child: OnboardingScreen(),
     );
   }
 }

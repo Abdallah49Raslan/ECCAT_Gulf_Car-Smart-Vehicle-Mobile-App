@@ -35,9 +35,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            color: blackBG, // Set the background color to black
-          ),
           Positioned(
             width: MediaQuery.of(context).size.width * 1.7,
             bottom: 200,
@@ -64,61 +61,71 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Spacer(),
-                    SizedBox(
-                      width: 260,
-                      child: Column(
-                        children: const [
-                          Text(
-                            "ECCAT Car",
-                            style: headPage,
-                          ),
-                          SpaceVH(height: 40.0),
-                          Text(
-                            splashText,
-                            textAlign: TextAlign.left,
-                            style: headline2,
-                          ),
-                        ],
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      height: 400,
+                      child: Image.asset(
+                        'assets/image/App_logo.png',
+                        height: 50,
                       ),
                     ),
-                    const Spacer(flex: 3),
-                    AnimatedBtn(
-                      btnAnimationColtroller: _btnAnimationColtroller,
-                      press: () {
-                        _btnAnimationColtroller.isActive = true;
-                        Future.delayed(
-                          const Duration(milliseconds: 800),
-                          () {
-                            setState(() {
-                              isSignInDialogShown = true;
-                            });
-
-                            customSigninDialog(
-                              context,
-                              onCLosed: (_) {
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Spacer(),
+                        SizedBox(
+                          width: 260,
+                          child: Column(
+                            children: const [
+                              SpaceVH(height: 350.0),
+                              Text(
+                                splashText,
+                                textAlign: TextAlign.left,
+                                style: headline22,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Spacer(flex: 3),
+                        AnimatedBtn(
+                          btnAnimationColtroller: _btnAnimationColtroller,
+                          press: () {
+                            _btnAnimationColtroller.isActive = true;
+                            Future.delayed(
+                              const Duration(milliseconds: 800),
+                              () {
                                 setState(() {
-                                  isSignInDialogShown = false;
+                                  isSignInDialogShown = true;
                                 });
+
+                                customSigninDialog(
+                                  context,
+                                  onCLosed: (_) {
+                                    setState(() {
+                                      isSignInDialogShown = false;
+                                    });
+                                  },
+                                );
                               },
                             );
                           },
-                        );
-                      },
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 30),
+                        ),
+                      ],
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 30),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
