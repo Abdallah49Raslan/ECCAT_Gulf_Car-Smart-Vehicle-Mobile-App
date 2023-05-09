@@ -85,6 +85,7 @@ class _darkmodeState extends State<HealthCareDriver> {
                     image: AssetImage("assets/icons/Car.png")),
               ),
               child: GridView(
+                shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   mainAxisSpacing: 20,
