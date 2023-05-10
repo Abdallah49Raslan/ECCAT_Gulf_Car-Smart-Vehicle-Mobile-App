@@ -70,41 +70,36 @@ class _darkmodeState extends State<HealthCareDriver> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: Column(
+      backgroundColor: Colors.black,
+      body: Container(
+        width: screenWidth,
+        height: screenHeight - 70,
+        margin: EdgeInsets.only(top: 10),
+        padding: EdgeInsets.only(top: 70, right: 10, left: 10),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              // fit: BoxFit.fill,
+              image: AssetImage("assets/icons/Car.png")),
+        ),
+        child: GridView(
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 10,
+            childAspectRatio: 2,
+          ),
           children: [
-            SizedBox(
-              height: 70.h,
-            ),
-            Container(
-              width: screenWidth,
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    // fit: BoxFit.fill,
-                    image: AssetImage("assets/icons/Car.png")),
-              ),
-              child: GridView(
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 2,
-                ),
-                children: [
-                  //Driver Screen
-                  drivergrid(),
-                  //Passenger1 Screen
-                  passenger1grid(),
-                  //Passenger2 Screen
-                  passenger2grid()
-                ],
-              ),
-            ),
+            //Driver Screen
+            drivergrid(),
+            //Passenger1 Screen
+            passenger1grid(),
+            //Passenger2 Screen
+            passenger2grid()
           ],
-        ));
+        ),
+      ),
+    );
   }
 
   @override
