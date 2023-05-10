@@ -7,6 +7,7 @@ import '../../core/text_style.dart';
 import 'DriverGrid.dart';
 import 'Passenger1Grid.dart';
 import 'Passenger2Grid.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HealthCareDriver extends StatefulWidget {
   const HealthCareDriver({super.key});
@@ -73,7 +74,7 @@ class _darkmodeState extends State<HealthCareDriver> {
         body: Column(
           children: [
             SizedBox(
-              height: 70,
+              height: 70.h,
             ),
             Container(
               width: screenWidth,
