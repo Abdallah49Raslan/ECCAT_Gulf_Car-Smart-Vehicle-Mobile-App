@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 Widget DTemperatureCondition() {
   if (Ddisplaytemp == null || Ddisplaytemp == 0) {
@@ -26,6 +27,20 @@ Widget DTemperatureCondition() {
         ));
   } else {
     Drivertemp = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 1,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Driver's Temperature is abnormal ",
+      bigPicture: "asset://assets/icons/tempnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/tempnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$Drivertemp',
         style: TextStyle(
           fontSize: 20,
