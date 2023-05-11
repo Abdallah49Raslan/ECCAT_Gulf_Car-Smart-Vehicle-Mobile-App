@@ -1,37 +1,53 @@
 import 'dart:async';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eccat_car/Pages/Security/Captures.dart';
 import 'package:eccat_car/core/colors.dart';
 import 'package:eccat_car/core/text_style.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class Face_Reco extends StatefulWidget {
+
+class FaceReco extends StatefulWidget {
   @override
-  _FingerprintPageState createState() => _FingerprintPageState();
+  _FaceRecoState createState() => _FaceRecoState();
 }
 
-class _FingerprintPageState extends State<Face_Reco> {
+class _FaceRecoState extends State<FaceReco> {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
-  String? WelcomeName;
-  String? UrlPic;
-  bool _showAvatar = false;
+  String? welcomeName;
+  String? urlPic;
 
+  @override
   void initState() {
     super.initState();
     activateListeners();
   }
 
   void activateListeners() {
-    //Driver values
-    outputstream = database.child('welcomeflag').onValue.listen((event) {
-      final String? Name = event.snapshot.child('welcomeflag').value as String?;
-      final String? Url = event.snapshot.child('photo').value as String?;
+    outputstream = database.child('DriverName').onValue.listen((event) {
+      activateListeners1();
+    });
+  }
 
-      setState(() {
-        WelcomeName = Name;
-        UrlPic = Url;
-      });
+  void activateListeners1() {
+    _firestore
+        .collection('drivers')
+        .doc()
+        .get()
+        .then((DocumentSnapshot snapshot) {
+      final Map<String, dynamic>? data =
+          snapshot.data() as Map<String, dynamic>?;
+
+      if (data != null) {
+        final String? url = data['Photo'] as String?;
+        final String? name = data['DriverName'] as String?;
+        setState(() {
+          urlPic = url;
+          welcomeName = name;
+        });
+      }
     });
   }
 
@@ -60,22 +76,34 @@ class _FingerprintPageState extends State<Face_Reco> {
               body: Column(
                 children: [
                   SizedBox(height: 30),
-                  _showAvatar
-                      ? Align(
-                          alignment: Alignment.topRight,
-                          child: CircleAvatar(
-                            radius: 120,
-                            backgroundImage: UrlPic != null
-                                ? NetworkImage(UrlPic!) as ImageProvider
-                                : null,
-                            child: GestureDetector(
-                              child: UrlPic == null
-                                  ? const Icon(Icons.person, size: 60)
-                                  : SizedBox(),
-                            ),
-                          ),
-                        )
-                      : SizedBox(),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      width: maxWidth, // Adjust the width as needed
+                      height: maxHeight / 3, // Adjust the height as needed
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.blue, // Add the blue color
+                          width: 4, // Add the border width as needed
+                        ),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            if (urlPic != null)
+                              Image.network(
+                                urlPic!,
+                                fit: BoxFit.cover,
+                              ),
+                            if (urlPic == null) Icon(Icons.person, size: 60),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   SizedBox(height: 40),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -84,7 +112,7 @@ class _FingerprintPageState extends State<Face_Reco> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      WelcomeName ?? "No body",
+                      welcomeName ?? "No body",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -93,22 +121,24 @@ class _FingerprintPageState extends State<Face_Reco> {
                     ),
                   ),
                   const Spacer(flex: 6),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20, bottom: 20),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            _showAvatar = !_showAvatar;
-                          });
-                        },
-                        child: Text(
-                          _showAvatar ? 'Hide it' : 'Show Who in the car',
-                          style: headline2,
-                        ),
-                      ),
-                    ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Captures()),
+                      );
+
+                      database.child('captureflag').update({
+                        'capture': 1,
+                      });
+
+                      Future.delayed(Duration(seconds: 5), () {
+                        database.child('captureflag').update({
+                          'capture': 0,
+                        });
+                      });
+                    },
+                    child: Text('Take picture'),
                   ),
                 ],
               ),

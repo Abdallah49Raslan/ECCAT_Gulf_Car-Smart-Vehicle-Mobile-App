@@ -1,4 +1,3 @@
-//
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:eccat_car/Pages/AI/controller/controller.dart';
 import 'package:eccat_car/Pages/AI/controller/controller_bindings.dart';
@@ -10,9 +9,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/instance_manager.dart';
-
+import 'Pages/Health Care/darkmode.dart';
 import 'Pages/started_pages/Driver/entry_Driver.dart';
 import 'Pages/started_pages/Owner/entry_Owner.dart';
+import 'logic/auth.dart';
 import 'onboding_screen.dart';
 
 void main() async {
@@ -127,7 +127,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: OnboardingScreen(),
+      child: AuthPage(),
     );
   }
 }

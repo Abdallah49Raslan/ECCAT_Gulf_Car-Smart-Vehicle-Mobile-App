@@ -5,7 +5,7 @@ import '../../../core/space.dart';
 import '../../AI/car_page.dart';
 import '../../Health Care/darkmode.dart';
 import '../../Iot/iot.dart';
-import '../../Security/Face_reco.dart';
+import '../../Security/Detection.dart';
 
 class OwnerStartPage extends StatefulWidget {
   const OwnerStartPage({super.key});
@@ -202,7 +202,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) =>  Face_Reco()));
+                                  builder: (builder) =>  Detection()));
                         },
                         child: Container(
                           height: (cons.maxWidth - 8) / 2,
