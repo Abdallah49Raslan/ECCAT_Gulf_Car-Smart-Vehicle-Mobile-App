@@ -13,7 +13,6 @@ class AuthPage extends StatefulWidget {
   @override
   _AuthPageState createState() => _AuthPageState();
 }
-
 class _AuthPageState extends State<AuthPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -36,24 +35,30 @@ class _AuthPageState extends State<AuthPage> {
       print('1');
       if (documentSnapshot != null && documentSnapshot.exists) {
         userRole = documentSnapshot.data()!['user'];
-print('2');
+        print('2');
         // Navigate to the appropriate start page based on user's role
         if (userRole == 'Owner') {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const EntryOwner(initialIndex: 2,)),
-          );
+          Future.delayed(Duration.zero, () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const EntryOwner(initialIndex: 2,)),
+            );
+          });
         } else if (userRole == 'Driver') {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const EntryDriver(initialIndex: 2,)),
-          );
+          Future.delayed(Duration.zero, () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const EntryDriver(initialIndex: 2,)),
+            );
+          });
           print('3');
         } else if (userRole == 'Customer') {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const EntryCustomer(initialIndex: 2,)),
-          );
+          Future.delayed(Duration.zero, () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const EntryCustomer(initialIndex: 2,)),
+            );
+          });
         } else {
           print('4');
           // If role is not recognized, show an error message and return to OnboardingScreen
@@ -69,10 +74,12 @@ print('2');
               behavior: SnackBarBehavior.floating,
             ),
           );
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => OnboardingScreen()),
-          );
+          Future.delayed(Duration.zero, () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => OnboardingScreen()),
+            );
+          });
         }
       } else {
         print('5');
@@ -89,17 +96,21 @@ print('2');
             behavior: SnackBarBehavior.floating,
           ),
         );
+        Future.delayed(Duration.zero, () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => OnboardingScreen()),
+          );
+        });
+      }
+    } else {
+      print('6');
+      Future.delayed(Duration.zero, () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => OnboardingScreen()),
         );
-      }
-    } else {
-      print('6');
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => OnboardingScreen()),
-      );
+      });
     }
   }
 
