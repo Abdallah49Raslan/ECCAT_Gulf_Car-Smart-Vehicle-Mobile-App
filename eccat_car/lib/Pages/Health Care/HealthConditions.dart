@@ -70,7 +70,7 @@ Widget P1TemperatureCondition() {
     P1temp = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 20,
       channelKey: "schedule",
       title: "Emergency",
       body: "Passenger1's Temperature is abnormal ",
@@ -111,7 +111,7 @@ Widget P2TemperatureCondition() {
     P2temp = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 21,
       channelKey: "schedule",
       title: "Emergency",
       body: "Passenger2's Temperature is abnormal ",
@@ -152,7 +152,7 @@ Widget DHeartRateCondition() {
     Driverheart = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 22,
       channelKey: "schedule",
       title: "Emergency",
       body: "Driver's Heart rate is abnormal ",
@@ -193,7 +193,7 @@ Widget P1HeartRateCondition() {
     P1heart = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 23,
       channelKey: "schedule",
       title: "Emergency",
       body: "Passenger1's Heart rate is abnormal ",
@@ -234,7 +234,7 @@ Widget P2HeartRateCondition() {
     P2heart = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 24,
       channelKey: "schedule",
       title: "Emergency",
       body: "Passenger2's Heart rate is abnormal ",
@@ -275,7 +275,7 @@ Widget DOximeterCondition() {
     Driveroxi = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 25,
       channelKey: "schedule",
       title: "Emergency",
       body: "Driver's Oximeter is abnormal ",
@@ -316,7 +316,7 @@ Widget P1OximeterCondition() {
     P1oxi = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 26,
       channelKey: "schedule",
       title: "Emergency",
       body: "Passenger1's Oximeter is abnormal ",
@@ -357,7 +357,7 @@ Widget P2OximeterCondition() {
     P2oxi = "Abnormal";
     AwesomeNotifications().createNotification(
         content: NotificationContent(
-      id: 1,
+      id: 27,
       channelKey: "schedule",
       title: "Emergency",
       body: "Passenger2's Oximeter is abnormal ",
