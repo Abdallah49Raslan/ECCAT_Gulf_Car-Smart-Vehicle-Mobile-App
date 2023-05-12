@@ -112,7 +112,7 @@ Widget drivergrid() {
                 ],
               ),
               SizedBox(
-                width: 20,
+                width: 15.h,
               ),
               //Values Column
               Column(
