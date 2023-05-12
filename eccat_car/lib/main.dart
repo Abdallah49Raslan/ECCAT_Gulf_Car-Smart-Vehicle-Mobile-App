@@ -95,7 +95,23 @@ void main() async {
             onlyAlertOnce: true,
             importance: NotificationImportance.High,
             ledColor: Colors.green),
+
+        NotificationChannel(
+            channelKey: 'health',
+            channelName: 'health',
+            channelDescription: 'health22',
+            playSound: true,
+            channelShowBadge: true,
+            enableLights: true,
+            enableVibration: true,
+            importance: NotificationImportance.High,
+            ledColor: Colors.green)
       ]);
+  await AwesomeNotifications().isNotificationAllowed().then((isAllowed) async {
+    if (!isAllowed) {
+      await AwesomeNotifications().requestPermissionToSendNotifications();
+    }
+  });
 
   runApp(const MyApp());
 }

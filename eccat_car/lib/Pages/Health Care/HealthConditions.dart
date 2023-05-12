@@ -29,7 +29,7 @@ Widget DTemperatureCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 1,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Driver's Temperature is abnormal ",
       bigPicture: "asset://assets/icons/tempnoti.png",
@@ -70,7 +70,7 @@ Widget P1TemperatureCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 20,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Passenger1's Temperature is abnormal ",
       bigPicture: "asset://assets/icons/tempnoti.png",
@@ -111,7 +111,7 @@ Widget P2TemperatureCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 21,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Passenger2's Temperature is abnormal ",
       bigPicture: "asset://assets/icons/tempnoti.png",
@@ -152,7 +152,7 @@ Widget DHeartRateCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 22,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Driver's Heart rate is abnormal ",
       bigPicture: "asset://assets/icons/heartnoti.png",
@@ -193,7 +193,7 @@ Widget P1HeartRateCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 23,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Passenger1's Heart rate is abnormal ",
       bigPicture: "asset://assets/icons/heartnoti.png",
@@ -234,7 +234,7 @@ Widget P2HeartRateCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 24,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Passenger2's Heart rate is abnormal ",
       bigPicture: "asset://assets/icons/heartnoti.png",
@@ -275,7 +275,7 @@ Widget DOximeterCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 25,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Driver's Oximeter is abnormal ",
       bigPicture: "asset://assets/icons/oximeternotif.png",
@@ -316,7 +316,7 @@ Widget P1OximeterCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 26,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Passenger1's Oximeter is abnormal ",
       bigPicture: "asset://assets/icons/oximeternotif.png",
@@ -357,7 +357,7 @@ Widget P2OximeterCondition() {
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 27,
-      channelKey: "schedule",
+      channelKey: "health",
       title: "Emergency",
       body: "Passenger2's Oximeter is abnormal ",
       bigPicture: "asset://assets/icons/oximeternotif.png",
