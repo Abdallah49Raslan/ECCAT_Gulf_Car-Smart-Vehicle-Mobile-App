@@ -377,3 +377,28 @@ Widget P2OximeterCondition() {
         ));
   }
 }
+
+Widget DAlcoholCondition() {
+  if (displayalcohol == null) {
+    return Text(".........",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ));
+  } else if (displayalcohol == "Negative") {
+    return Text('Normal',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: primaryColor,
+        ));
+  } else {
+    return Text('Abnormal',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Color(0XFFC6372A),
+        ));
+  }
+}
