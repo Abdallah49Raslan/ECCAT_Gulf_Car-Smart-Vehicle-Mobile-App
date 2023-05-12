@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:eccat_car/Pages/home/components/animated_bar.dart';
 import 'package:eccat_car/Pages/started_pages/Customer/Custom_start.dart';
-import 'package:eccat_car/Pages/started_pages/Driver/Driver_start.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,17 +8,11 @@ import 'package:rive/rive.dart';
 import '../../../core/colors.dart';
 import '../../../core/rive_utils.dart';
 import '../../../functions/alertexitapp.dart';
-import '../../../lists/search.dart';
-import '../../AI/car_page.dart';
 import '../../AI/person_page.dart';
-import '../../AI/search_page.dart';
 import '../../Health Care/Passenger1.dart';
-import '../../Health Care/darkmode.dart';
-import '../../User_Profile.dart';
+import '../../Security/user_check.dart';
 import '../../home/components/side_menu.dart';
 import '../../home/models/menu_btn.dart';
-import '../../home/models/rive_asset.dart';
-import '../../Iot/iot.dart';
 
 // We are done with our 5th and last episode
 // Thank you so much for watching entire serise
@@ -51,6 +43,7 @@ class _EntryCustomerState extends State<EntryCustomer>
   final screens = [
     Passenger1(),
     CustomerStartPage(),
+    UserCheck(),
     WebViewApp(),
   ];
 
@@ -61,6 +54,10 @@ class _EntryCustomerState extends State<EntryCustomer>
     ),
     Icon(
       Icons.home,
+      size: 30.h,
+    ),
+    Icon(
+      Icons.safety_check,
       size: 30.h,
     ),
     Icon(

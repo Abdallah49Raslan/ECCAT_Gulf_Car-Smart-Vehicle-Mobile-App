@@ -45,7 +45,7 @@ class _SearchPageState extends State<AboutAPP> {
                           applicationName: 'Golf Car',
                           children: [
                             Text(
-                              'This App created by Abdel Rahman Said',
+                              'This App created by Team Mobile App at ECCAT',
                               style: TextStyle(fontSize: 30.sp),
                             ),
                           ],

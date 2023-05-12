@@ -49,8 +49,8 @@ class _DriversPageState extends State<DriversPage> {
       }
 
       await driversCollection.add({
-        'driverName': 'Eslam',
-        'age': 20,
+        'driverName': 'Dr.Tamer',
+        'age': 40,
         'profilePicture': _uploadedImageUrl,
       });
     }
@@ -67,18 +67,21 @@ class _DriversPageState extends State<DriversPage> {
       appBar: AppBar(
         title: Text('Drivers'),
       ),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: _selectAndUploadImage,
-            child: Text('Select Image'),
-          ),
-          if (_image != null) Image.file(_image!),
-          ElevatedButton(
-            onPressed: _addDriver,
-            child: Text('Add Driver'),
-          ),
-        ],
+      body: SingleChildScrollView(
+        // Wrap the Column with SingleChildScrollView
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: _selectAndUploadImage,
+              child: Text('Select Image'),
+            ),
+            if (_image != null) Image.file(_image!),
+            ElevatedButton(
+              onPressed: _addDriver,
+              child: Text('Add Driver'),
+            ),
+          ],
+        ),
       ),
     );
   }

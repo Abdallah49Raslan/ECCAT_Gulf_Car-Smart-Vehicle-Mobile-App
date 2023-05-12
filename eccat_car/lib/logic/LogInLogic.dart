@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Pages/started_pages/Customer/entry_customer.dart';
-import '../Pages/started_pages/Driver/Driver_start.dart';
 import '../Pages/started_pages/Driver/entry_Driver.dart';
 import '../Pages/started_pages/Owner/entry_Owner.dart';
 import '../onboding_screen.dart';

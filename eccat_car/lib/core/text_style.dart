@@ -19,6 +19,12 @@ const TextStyle headline = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const TextStyle Security = TextStyle(
+  fontSize: 24,
+  color: white,
+  fontWeight: FontWeight.bold,
+);
+
 const TextStyle headlineDot = TextStyle(
   fontSize: 16,
   color: blackBG,

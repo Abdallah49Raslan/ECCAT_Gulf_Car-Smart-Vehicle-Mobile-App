@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eccat_car/core/colors.dart';
-import 'package:eccat_car/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 class Detection extends StatefulWidget {
@@ -93,7 +92,7 @@ class _FingerprintPageState extends State<Detection> {
                       snapshot.data?.data() as Map<String, dynamic>? ?? {};
                   final welcomeName = data['Warning'] as String? ?? 'Nobody';
                   return Text(
-                    welcomeName ?? 'No body',
+                    welcomeName,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

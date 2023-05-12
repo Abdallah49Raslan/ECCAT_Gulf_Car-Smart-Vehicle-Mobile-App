@@ -1,16 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.eccat_car">
-<<<<<<< HEAD
         <uses-permission android:name="android.permission.USE_BIOMETRIC"/> 
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-=======
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> 
->>>>>>> 69dff98ee479e2832ad0efe4cafd27a86c5db00e
+        <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+        <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+        <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> 
 
    <application
         android:label="ECCAT Car"

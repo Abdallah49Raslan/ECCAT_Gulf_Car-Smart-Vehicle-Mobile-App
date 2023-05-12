@@ -1,8 +1,7 @@
 import 'dart:math';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:eccat_car/Pages/home/components/animated_bar.dart';
-import 'package:eccat_car/Pages/started_pages/Customer/Custom_start.dart';
-import 'package:eccat_car/Pages/started_pages/Driver/Driver_start.dart';
+import 'package:eccat_car/Pages/Iot/iot.dart';
+import 'package:eccat_car/Pages/User_Profile.dart';
 import 'package:eccat_car/Pages/started_pages/Owner/Owner_start.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,18 +10,11 @@ import 'package:rive/rive.dart';
 import '../../../core/colors.dart';
 import '../../../core/rive_utils.dart';
 import '../../../functions/alertexitapp.dart';
-import '../../../lists/search.dart';
-import '../../AI/car_page.dart';
 import '../../AI/search_page.dart';
-import '../../Health Care/Passenger1.dart';
 import '../../Health Care/darkmode.dart';
-import '../../Security/Detection.dart';
 import '../../Security/Face_reco.dart';
-import '../../User_Profile.dart';
 import '../../home/components/side_menu.dart';
 import '../../home/models/menu_btn.dart';
-import '../../home/models/rive_asset.dart';
-import '../../Iot/iot.dart';
 
 // We are done with our 5th and last episode
 // Thank you so much for watching entire serise
@@ -54,7 +46,8 @@ class _EntryOwnerState extends State<EntryOwner>
     FaceReco(),
     HealthCareDriver(),
     OwnerStartPage(),
-    AboutAPP(),
+    IoTPage(),
+    UserInfoPage()
   ];
 
   final items = <Widget>[
@@ -70,8 +63,12 @@ class _EntryOwnerState extends State<EntryOwner>
       Icons.home,
       size: 30.h,
     ),
+   Icon(
+      Icons.battery_5_bar,
+      size: 30.h,
+    ),
     Icon(
-      Icons.app_blocking,
+      Icons.person,
       size: 30.h,
     ),
   ];

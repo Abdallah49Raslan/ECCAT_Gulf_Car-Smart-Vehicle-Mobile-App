@@ -5,15 +5,14 @@ import 'package:eccat_car/core/colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/text_style.dart';
 import 'Detection.dart';
 
-class FaceReco extends StatefulWidget {
+class UserCheck extends StatefulWidget {
   @override
-  _FaceRecoState createState() => _FaceRecoState();
+  _UserCheckState createState() => _UserCheckState();
 }
 
-class _FaceRecoState extends State<FaceReco> {
+class _UserCheckState extends State<UserCheck> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
@@ -78,7 +77,7 @@ class _FaceRecoState extends State<FaceReco> {
               backgroundColor: Colors.transparent,
               body: Column(
                 children: [
-                  SizedBox(height: 72),
+                  SizedBox(height: 30),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
@@ -107,68 +106,19 @@ class _FaceRecoState extends State<FaceReco> {
                       ),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.white, // Border color
-                      ),
-                      color: Colors.black, // Background color of the border
-                      borderRadius: BorderRadius.circular(10), // Border radius
-                    ),
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: Column(
-                      children: [
-                        Text(
-                          'The Driver is: $Driver_name \n         Age: $Ages',
-                          style: Security,
-                        ),
-                      ],
+                  SizedBox(height: 40),
+                  Text(
+                    'The Driver: $Driver_name',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Detection()),
-                        );
-                      },
-                      child: Text(
-                        'Detection',
-                        style: headline2,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red, // Set background color to red
-                      ),
-                    ),
-                  ),
-                  const Spacer(flex: 6),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Captures()),
-                        );
-
-                        database.child('captureflag').update({
-                          'capture': '1',
-                        });
-
-                        Future.delayed(Duration(seconds: 5), () {
-                          database.child('captureflag').update({
-                            'capture': '0',
-                          });
-                        });
-                      },
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        size: 40,
-                      ),
-                      backgroundColor: Colors.blue,
+                  Text(
+                    'Age: $Ages',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
                 ],
