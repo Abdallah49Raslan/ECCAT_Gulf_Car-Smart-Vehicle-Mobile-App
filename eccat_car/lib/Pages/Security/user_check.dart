@@ -29,26 +29,26 @@ class _UserCheckState extends State<UserCheck> {
     activateListeners();
   }
 
-  void activateListeners() {
+   void activateListeners() {
     outputstream1 = database.child('welcomeflag').onValue.listen((event) {
       final Object? welcomeFlagValue =
           event.snapshot.child('welcomeflag').value;
 
       // Retrieve driver's information if the welcomeFlagValue matches driverName
-      _firestore
-          .collection('drivers')
-          .doc('17aMVpj7rklvr04AhePG')
-          .get()
-          .then((snapshot) {
-        final Object? name = snapshot.get('driverName');
-        final Object? driverAge = snapshot.get('age');
-        final Object? profileUrl = snapshot.get('profilePicture');
+      _firestore.collection('drivers').get().then((snapshot) {
+        snapshot.docs.forEach((doc) {
+          final Object? name = doc.get('driverName');
+          final Object? driverAge = doc.get('age');
+          final Object? profileUrl = doc.get('profilePicture');
 
-        setState(() {
-          Driver_name = '$name';
-          Ages = '$driverAge';
-          urlPic = '$profileUrl';
-          welcomName = '$welcomeFlagValue';
+          if (welcomeFlagValue == name) {
+            setState(() {
+              Driver_name = '$name';
+              Ages = '$driverAge';
+              urlPic = '$profileUrl';
+              welcomName = '$welcomeFlagValue';
+            });
+          }
         });
       });
     });
