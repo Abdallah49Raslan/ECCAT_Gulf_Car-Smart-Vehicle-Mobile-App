@@ -17,6 +17,7 @@ import '../../AI/search_page.dart';
 import '../../Health Care/Passenger1.dart';
 import '../../Health Care/darkmode.dart';
 import '../../Security/Detection.dart';
+import '../../Security/Face_reco.dart';
 import '../../User_Profile.dart';
 import '../../home/components/side_menu.dart';
 import '../../home/models/menu_btn.dart';
@@ -50,7 +51,7 @@ class _EntryOwnerState extends State<EntryOwner>
   bool isSideMenuClosed = true;
   int currentpages = 0;
   final screens = [
-    Detection(),
+    FaceReco(),
     HealthCareDriver(),
     OwnerStartPage(),
     AboutAPP(),

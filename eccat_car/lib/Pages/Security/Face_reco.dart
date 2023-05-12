@@ -6,6 +6,7 @@ import 'package:eccat_car/core/text_style.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
+import 'Detection.dart';
 
 class FaceReco extends StatefulWidget {
   @override
@@ -16,8 +17,11 @@ class _FaceRecoState extends State<FaceReco> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
-  String? welcomeName;
+  late StreamSubscription outputstream1;
+  String? Driver_name;
   String? urlPic;
+  String? Ages;
+  String? welcomName;
 
   @override
   void initState() {
@@ -26,28 +30,27 @@ class _FaceRecoState extends State<FaceReco> {
   }
 
   void activateListeners() {
-    outputstream = database.child('DriverName').onValue.listen((event) {
-      activateListeners1();
-    });
-  }
+    outputstream1 = database.child('welcomeflag').onValue.listen((event) {
+      final Object? welcomeFlagValue =
+          event.snapshot.child('welcomeflag').value;
 
-  void activateListeners1() {
-    _firestore
-        .collection('drivers')
-        .doc()
-        .get()
-        .then((DocumentSnapshot snapshot) {
-      final Map<String, dynamic>? data =
-          snapshot.data() as Map<String, dynamic>?;
+      // Retrieve driver's information if the welcomeFlagValue matches driverName
+      _firestore
+          .collection('drivers')
+          .doc('17aMVpj7rklvr04AhePG')
+          .get()
+          .then((snapshot) {
+        final Object? name = snapshot.get('driverName');
+        final Object? driverAge = snapshot.get('age');
+        final Object? profileUrl = snapshot.get('profilePicture');
 
-      if (data != null) {
-        final String? url = data['Photo'] as String?;
-        final String? name = data['DriverName'] as String?;
         setState(() {
-          urlPic = url;
-          welcomeName = name;
+          Driver_name = '$name';
+          Ages = '$driverAge';
+          urlPic = '$profileUrl';
+          welcomName = '$welcomeFlagValue';
         });
-      }
+      });
     });
   }
 
@@ -79,13 +82,13 @@ class _FaceRecoState extends State<FaceReco> {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
-                      width: maxWidth, // Adjust the width as needed
-                      height: maxHeight / 3, // Adjust the height as needed
+                      width: maxWidth,
+                      height: maxHeight / 3,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: Colors.blue, // Add the blue color
-                          width: 4, // Add the border width as needed
+                          color: Colors.blue,
+                          width: 4,
                         ),
                       ),
                       child: ClipRRect(
@@ -105,19 +108,18 @@ class _FaceRecoState extends State<FaceReco> {
                     ),
                   ),
                   SizedBox(height: 40),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    decoration: BoxDecoration(
-                      color: backgroundColorDark,
-                      borderRadius: BorderRadius.circular(20),
+                  Text(
+                    'The Driver: $Driver_name',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
-                    child: Text(
-                      welcomeName ?? "No body",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                  ),
+                  Text(
+                    'Age: $Ages',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
                   const Spacer(flex: 6),
@@ -129,16 +131,28 @@ class _FaceRecoState extends State<FaceReco> {
                       );
 
                       database.child('captureflag').update({
-                        'capture': 1,
+                        'capture': '1',
                       });
 
                       Future.delayed(Duration(seconds: 5), () {
                         database.child('captureflag').update({
-                          'capture': 0,
+                          'capture': '0',
                         });
                       });
                     },
                     child: Text('Take picture'),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Detection()),
+                      );
+                    },
+                    child: Text('Detction'),
                   ),
                 ],
               ),
@@ -147,11 +161,5 @@ class _FaceRecoState extends State<FaceReco> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    outputstream.cancel();
-    super.dispose();
   }
 }

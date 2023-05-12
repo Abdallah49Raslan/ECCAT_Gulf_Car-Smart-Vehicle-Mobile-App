@@ -48,9 +48,9 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
               //car icon in above of page
               Container(
                   width: double.infinity,
-                  height: 300,
+                  height: MediaQuery.of(context).size.height / 2,
                   // decoration: const BoxDecoration(
-                  //     color: whiteText,
+                  //     color: backgroundColorLight,
                   //     borderRadius: BorderRadius.only(
                   //         bottomLeft: Radius.circular(50),
                   //         bottomRight: Radius.circular(50))),
@@ -136,8 +136,7 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) =>
-                                      const Passenger1()));
+                                  builder: (builder) => const Passenger1()));
                         },
                         child: Container(
                           height: (cons.maxWidth - 8) / 2,
@@ -181,9 +180,8 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
                   );
                 }),
               ),
-
               SizedBox(
-                height: 30,
+                height: 50,
               ),
             ],
           ),

@@ -51,7 +51,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
               //car icon in above of page
               Container(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: MediaQuery.of(context).size.height / 2 - 50,
                   // decoration: const BoxDecoration(
                   //     color: backgroundColorLight,
                   //     borderRadius: BorderRadius.only(
@@ -59,7 +59,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
                   //         bottomRight: Radius.circular(50))),
                   child: Image.asset(
                     'assets/image/App_logo.png',
-                    height: 330,
                   )),
 
               const Padding(
@@ -295,7 +294,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                 }),
               ),
               SizedBox(
-                height: 30,
+                height: 50,
               ),
             ],
           ),

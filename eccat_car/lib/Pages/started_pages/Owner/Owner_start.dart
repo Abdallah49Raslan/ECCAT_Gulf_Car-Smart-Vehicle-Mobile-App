@@ -49,11 +49,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
               ),
 
               //car icon in above of page
-              Container(
+             Container(
                   width: double.infinity,
-                  height: 300,
+                  height: MediaQuery.of(context).size.height / 2,
                   // decoration: const BoxDecoration(
-                  //     color: whiteText,
+                  //     color: backgroundColorLight,
                   //     borderRadius: BorderRadius.only(
                   //         bottomLeft: Radius.circular(50),
                   //         bottomRight: Radius.circular(50))),
@@ -202,7 +202,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) =>  Detection()));
+                                  builder: (builder) => Detection()));
                         },
                         child: Container(
                           height: (cons.maxWidth - 8) / 2,
@@ -276,16 +276,17 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                                 height: 10,
                               ),
                               Expanded(
-                                  child: Container(
-                                //margin: EdgeInsets.only(top: 20),
-                                child: const Text(
-                                  'Health',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                child: Container(
+                                  //margin: EdgeInsets.only(top: 20),
+                                  child: const Text(
+                                    'Health',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ))
+                              )
                             ],
                           ),
                         ),
@@ -295,7 +296,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                 }),
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
             ],
           ),
