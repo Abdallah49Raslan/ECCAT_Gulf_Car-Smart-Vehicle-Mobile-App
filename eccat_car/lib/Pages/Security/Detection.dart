@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eccat_car/Pages/Security/Face_reco.dart';
+import 'package:eccat_car/Pages/started_pages/Owner/entry_Owner.dart';
 import 'package:eccat_car/core/colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -107,6 +109,24 @@ class _FingerprintPageState extends State<Detection> {
                   style: Security,
                 ),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EntryOwner(initialIndex: 0,)),
+                );
+              },
+              child: Text(
+                'Back',
+                style: headline2,
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: blueButton, // Set background color to red
+              ),
             ),
           ),
         ],
