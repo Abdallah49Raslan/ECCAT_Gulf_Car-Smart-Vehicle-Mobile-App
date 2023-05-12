@@ -5,6 +5,7 @@ import 'package:eccat_car/core/colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/text_style.dart';
 import 'Detection.dart';
 
 class UserCheck extends StatefulWidget {
@@ -77,7 +78,7 @@ class _UserCheckState extends State<UserCheck> {
               backgroundColor: Colors.transparent,
               body: Column(
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 75),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
@@ -106,19 +107,23 @@ class _UserCheckState extends State<UserCheck> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 40),
-                  Text(
-                    'The Driver: $Driver_name',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white, // Border color
+                      ),
+                      color: Colors.black, // Background color of the border
+                      borderRadius: BorderRadius.circular(10), // Border radius
                     ),
-                  ),
-                  Text(
-                    'Age: $Ages',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: Column(
+                      children: [
+                        Text(
+                          'The Driver is: $Driver_name \n         Age: $Ages',
+                          style: Security,
+                        ),
+                      ],
                     ),
                   ),
                 ],

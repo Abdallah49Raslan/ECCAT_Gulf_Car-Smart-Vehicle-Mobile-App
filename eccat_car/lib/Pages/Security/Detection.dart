@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eccat_car/core/colors.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/text_style.dart';
 
 class Detection extends StatefulWidget {
   @override
@@ -10,8 +13,9 @@ class Detection extends StatefulWidget {
 
 class _FingerprintPageState extends State<Detection> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
-  String? welcomeName;
+  String? unAuth;
   String? urlPic;
 
   void initState() {
@@ -20,18 +24,21 @@ class _FingerprintPageState extends State<Detection> {
   }
 
   void activateListeners() {
-    // Driver values
-    outputstream = _firestore
-        .collection('Unauthorized')
-        .doc('unauthorized_person')
-        .snapshots()
-        .listen((event) {
-      final String? name = event.data()?['Warning'] as String?;
-      final String? url = event.data()?['photoURL'] as String?;
+    outputstream = database.child('unwelcomeflag').onValue.listen((event) {
+      final Object? Unwelcom = event.snapshot.child('unwelcomeflag').value;
 
-      setState(() {
-        welcomeName = name;
-        urlPic = url;
+      // Retrieve driver's information if the welcomeFlagValue matches driverName
+      _firestore
+          .collection('Unauthorized')
+          .doc('unauthorized_person')
+          .get()
+          .then((snapshot) {
+        final Object? profileUrl = snapshot.get('photoURL');
+
+        setState(() {
+          urlPic = '$profileUrl';
+          unAuth = '$Unwelcom';
+        });
       });
     });
   }
@@ -42,6 +49,14 @@ class _FingerprintPageState extends State<Detection> {
     final maxWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: backgroundColorDark,
+        title: Text(
+          "Detection",
+          style: headline1,
+        ),
+      ),
       backgroundColor: blackBG,
       body: Column(
         children: [
@@ -76,35 +91,22 @@ class _FingerprintPageState extends State<Detection> {
           ),
           SizedBox(height: 40),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
-              color: backgroundColorDark,
-              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: Colors.white, // Border color
+              ),
+              color: Colors.black, // Background color of the border
+              borderRadius: BorderRadius.circular(10), // Border radius
             ),
-            child: StreamBuilder<DocumentSnapshot>(
-              stream: FirebaseFirestore.instance
-                  .collection('Unauthorized')
-                  .doc('unauthorized_person')
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final data =
-                      snapshot.data?.data() as Map<String, dynamic>? ?? {};
-                  final welcomeName = data['Warning'] as String? ?? 'Nobody';
-                  return Text(
-                    welcomeName,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  );
-                } else if (snapshot.hasError) {
-                  return Text('Error');
-                } else {
-                  return CircularProgressIndicator();
-                }
-              },
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Column(
+              children: [
+                Text(
+                  ' $unAuth ',
+                  style: Security,
+                ),
+              ],
             ),
           ),
         ],

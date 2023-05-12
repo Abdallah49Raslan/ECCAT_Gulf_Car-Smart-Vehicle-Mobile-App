@@ -78,7 +78,7 @@ class _FaceRecoState extends State<FaceReco> {
               backgroundColor: Colors.transparent,
               body: Column(
                 children: [
-                  SizedBox(height: 72),
+                  SizedBox(height: 75),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
@@ -126,6 +126,7 @@ class _FaceRecoState extends State<FaceReco> {
                       ],
                     ),
                   ),
+                  
                   Align(
                     alignment: Alignment.center,
                     child: ElevatedButton(
