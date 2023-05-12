@@ -1,8 +1,10 @@
+//
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:eccat_car/Pages/AI/controller/controller.dart';
 import 'package:eccat_car/Pages/AI/controller/controller_bindings.dart';
 import 'package:eccat_car/Pages/started_pages/Driver/Driver_start.dart';
 import 'package:eccat_car/firebase_options.dart';
+import 'package:eccat_car/logic/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +15,6 @@ import 'Pages/Health Care/darkmode.dart';
 import 'Pages/Security/Face_reco.dart';
 import 'Pages/started_pages/Driver/entry_Driver.dart';
 import 'Pages/started_pages/Owner/entry_Owner.dart';
-import 'logic/auth.dart';
 import 'onboding_screen.dart';
 
 void main() async {

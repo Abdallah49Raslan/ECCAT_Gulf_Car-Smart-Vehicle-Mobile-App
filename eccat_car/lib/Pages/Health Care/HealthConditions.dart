@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 Widget DTemperatureCondition() {
   if (Ddisplaytemp == null || Ddisplaytemp == 0) {
@@ -26,6 +27,20 @@ Widget DTemperatureCondition() {
         ));
   } else {
     Drivertemp = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 1,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Driver's Temperature is abnormal ",
+      bigPicture: "asset://assets/icons/tempnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/tempnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$Drivertemp',
         style: TextStyle(
           fontSize: 20,
@@ -53,6 +68,20 @@ Widget P1TemperatureCondition() {
         ));
   } else {
     P1temp = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 20,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Passenger1's Temperature is abnormal ",
+      bigPicture: "asset://assets/icons/tempnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/tempnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$P1temp',
         style: TextStyle(
           fontSize: 20,
@@ -80,6 +109,20 @@ Widget P2TemperatureCondition() {
         ));
   } else {
     P2temp = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 21,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Passenger2's Temperature is abnormal ",
+      bigPicture: "asset://assets/icons/tempnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/tempnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$P2temp',
         style: TextStyle(
           fontSize: 20,
@@ -107,6 +150,20 @@ Widget DHeartRateCondition() {
         ));
   } else {
     Driverheart = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 22,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Driver's Heart rate is abnormal ",
+      bigPicture: "asset://assets/icons/heartnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/heartnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$Driverheart',
         style: TextStyle(
           fontSize: 20,
@@ -134,6 +191,20 @@ Widget P1HeartRateCondition() {
         ));
   } else {
     P1heart = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 23,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Passenger1's Heart rate is abnormal ",
+      bigPicture: "asset://assets/icons/heartnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/heartnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$P1heart',
         style: TextStyle(
           fontSize: 20,
@@ -161,6 +232,20 @@ Widget P2HeartRateCondition() {
         ));
   } else {
     P2heart = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 24,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Passenger2's Heart rate is abnormal ",
+      bigPicture: "asset://assets/icons/heartnoti.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/heartnoti.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$P2heart',
         style: TextStyle(
           fontSize: 20,
@@ -188,6 +273,20 @@ Widget DOximeterCondition() {
         ));
   } else {
     Driveroxi = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 25,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Driver's Oximeter is abnormal ",
+      bigPicture: "asset://assets/icons/oximeternotif.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/oximeternotif.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$Driveroxi',
         style: TextStyle(
           fontSize: 20,
@@ -215,6 +314,20 @@ Widget P1OximeterCondition() {
         ));
   } else {
     P1oxi = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 26,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Passenger1's Oximeter is abnormal ",
+      bigPicture: "asset://assets/icons/oximeternotif.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/oximeternotif.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$P1oxi',
         style: TextStyle(
           fontSize: 20,
@@ -242,6 +355,20 @@ Widget P2OximeterCondition() {
         ));
   } else {
     P2oxi = "Abnormal";
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+      id: 27,
+      channelKey: "schedule",
+      title: "Emergency",
+      body: "Passenger2's Oximeter is abnormal ",
+      bigPicture: "asset://assets/icons/oximeternotif.png",
+      notificationLayout: NotificationLayout.BigPicture,
+      largeIcon: "asset://assets/icons/oximeternotif.png",
+      wakeUpScreen: true,
+      locked: true,
+      displayOnBackground: true,
+      actionType: ActionType.Default,
+    ));
     return Text('$P2oxi',
         style: TextStyle(
           fontSize: 20,
