@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';

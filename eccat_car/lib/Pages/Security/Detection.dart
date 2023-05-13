@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import '../../core/text_style.dart';
 
 class Detection extends StatefulWidget {
+  final String? intialvalue;
+
+  const Detection({super.key, this.intialvalue});
   @override
   _FingerprintPageState createState() => _FingerprintPageState();
 }
@@ -22,6 +25,7 @@ class _FingerprintPageState extends State<Detection> {
 
   void initState() {
     super.initState();
+    unAuth = widget.intialvalue;
     activateListeners();
   }
 
@@ -117,7 +121,10 @@ class _FingerprintPageState extends State<Detection> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => EntryOwner(initialIndex: 0,)),
+                  MaterialPageRoute(
+                      builder: (context) => EntryOwner(
+                            initialIndex: 0,
+                          )),
                 );
               },
               child: Text(
