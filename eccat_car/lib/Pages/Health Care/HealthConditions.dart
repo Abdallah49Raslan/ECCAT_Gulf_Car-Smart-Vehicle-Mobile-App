@@ -7,6 +7,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:just_audio/just_audio.dart';
+
+void playSampleSound() async {
+  AudioPlayer player = AudioPlayer();
+  await player.setAsset('assets/Emergency.MP3');
+  player.play();
+}
 
 Widget DTemperatureCondition() {
   if (Ddisplaytemp == null || Ddisplaytemp == 0) {
@@ -26,6 +33,7 @@ Widget DTemperatureCondition() {
         ));
   } else {
     Drivertemp = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 1,
@@ -67,6 +75,7 @@ Widget P1TemperatureCondition() {
         ));
   } else {
     P1temp = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 20,
@@ -108,6 +117,7 @@ Widget P2TemperatureCondition() {
         ));
   } else {
     P2temp = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 21,
@@ -149,6 +159,7 @@ Widget DHeartRateCondition() {
         ));
   } else {
     Driverheart = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 22,
@@ -190,6 +201,7 @@ Widget P1HeartRateCondition() {
         ));
   } else {
     P1heart = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 23,
@@ -231,6 +243,7 @@ Widget P2HeartRateCondition() {
         ));
   } else {
     P2heart = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 24,
@@ -272,6 +285,7 @@ Widget DOximeterCondition() {
         ));
   } else {
     Driveroxi = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 25,
@@ -313,6 +327,7 @@ Widget P1OximeterCondition() {
         ));
   } else {
     P1oxi = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 26,
@@ -354,6 +369,7 @@ Widget P2OximeterCondition() {
         ));
   } else {
     P2oxi = "Abnormal";
+    SoundCondition();
     AwesomeNotifications().createNotification(
         content: NotificationContent(
       id: 27,
@@ -399,5 +415,19 @@ Widget DAlcoholCondition() {
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
+  }
+}
+
+void SoundCondition() {
+  if (Drivertemp == "Abnormal" ||
+      P1temp == "Abnormal" ||
+      P2temp == "Abnormal" ||
+      Driverheart == "Abnormal" ||
+      P1heart == "Abnormal" ||
+      P2heart == "Abnormal" ||
+      Driveroxi == "Abnormal" ||
+      P1oxi == "Abnormal" ||
+      P2oxi == "Abnormal") {
+    return playSampleSound();
   }
 }
