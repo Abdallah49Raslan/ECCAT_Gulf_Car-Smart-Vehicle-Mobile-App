@@ -152,9 +152,10 @@ Widget drivergrid() {
                     height: 5,
                   ),
                   Text(
-                    displayalcohol == 'Negative' ? '-Ve' : '+Ve',
+                    "$displayalcohol",
+                    //displayalcohol == 'Negative' ? '-Ve' : '+Ve',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
