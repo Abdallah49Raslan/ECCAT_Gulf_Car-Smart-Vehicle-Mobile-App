@@ -112,7 +112,7 @@ Widget drivergrid() {
                 ],
               ),
               SizedBox(
-                width: 15.h,
+                width: 10.h,
               ),
               //Values Column
               Column(
@@ -152,7 +152,7 @@ Widget drivergrid() {
                     height: 5,
                   ),
                   Text(
-                    '$displayalcohol',
+                    displayalcohol == 'Negative' ? '-Ve' : '+Ve',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

@@ -49,18 +49,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
               ),
 
               //car icon in above of page
-             Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 2,
-                  // decoration: const BoxDecoration(
-                  //     color: backgroundColorLight,
-                  //     borderRadius: BorderRadius.only(
-                  //         bottomLeft: Radius.circular(50),
-                  //         bottomRight: Radius.circular(50))),
-                  child: Image.asset(
-                    'assets/image/App_logo.png',
-                    height: 330,
-                  )),
+              Image.asset(
+                'assets/image/App_logo.png',
+                height: MediaQuery.of(context).size.height / 2 - 100,
+                width: double.infinity,
+              ),
 
               const Padding(
                 padding: EdgeInsets.symmetric(

@@ -23,6 +23,7 @@ class _FaceRecoState extends State<FaceReco> {
   String? urlPic;
   String? Ages;
   String? welcomName;
+  String? unwelcomflag;
 
   @override
   void initState() {
@@ -32,8 +33,9 @@ class _FaceRecoState extends State<FaceReco> {
 
   void activateListeners() {
     outputstream1 = database.child('welcomeflag').onValue.listen((event) {
-      final Object? welcomeFlagValue =
-          event.snapshot.child('welcomeflag').value;
+      final String? welcomeFlagValue =
+          event.snapshot.child('welcomeflag').value as String?;
+      unwelcomflag = event.snapshot.child('unwelcomeflag').value as String?;
 
       // Retrieve driver's information if the welcomeFlagValue matches driverName
       _firestore.collection('drivers').get().then((snapshot) {
@@ -49,6 +51,11 @@ class _FaceRecoState extends State<FaceReco> {
               urlPic = '$profileUrl';
               welcomName = '$welcomeFlagValue';
             });
+          } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Detection(intialvalue: unwelcomflag,)),
+            );
           }
         });
       });
