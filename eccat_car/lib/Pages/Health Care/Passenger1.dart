@@ -68,7 +68,6 @@ class _Passenger1State extends State<Passenger1> {
                   margin: EdgeInsets.only(top: 10),
                   padding: EdgeInsets.all(10),
                   child: GridView(
-                    scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
