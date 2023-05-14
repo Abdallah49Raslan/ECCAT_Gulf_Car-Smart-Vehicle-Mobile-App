@@ -49,17 +49,11 @@ class _DriverStartPageState extends State<DriverStartPage> {
               ),
 
               //car icon in above of page
-              Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 2 - 50,
-                  // decoration: const BoxDecoration(
-                  //     color: backgroundColorLight,
-                  //     borderRadius: BorderRadius.only(
-                  //         bottomLeft: Radius.circular(50),
-                  //         bottomRight: Radius.circular(50))),
-                  child: Image.asset(
-                    'assets/image/App_logo.png',
-                  )),
+              Image.asset(
+                'assets/image/App_logo.png',
+                height: MediaQuery.of(context).size.height / 2 - 100,
+                width: double.infinity,
+              ),
 
               const Padding(
                 padding: EdgeInsets.symmetric(

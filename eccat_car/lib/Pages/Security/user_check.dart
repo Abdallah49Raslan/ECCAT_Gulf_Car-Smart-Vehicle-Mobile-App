@@ -14,7 +14,7 @@ class UserCheck extends StatefulWidget {
 }
 
 class _UserCheckState extends State<UserCheck> {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
   late StreamSubscription outputstream1;
@@ -22,6 +22,7 @@ class _UserCheckState extends State<UserCheck> {
   String? urlPic;
   String? Ages;
   String? welcomName;
+  String? unwelcomflag;
 
   @override
   void initState() {
@@ -30,9 +31,10 @@ class _UserCheckState extends State<UserCheck> {
   }
 
    void activateListeners() {
-    outputstream1 = database.child('welcomeflag').onValue.listen((event) {
-      final Object? welcomeFlagValue =
-          event.snapshot.child('welcomeflag').value;
+    outputstream1 = database.child('Face recognition').onValue.listen((event) {
+      final String? welcomeFlagValue =
+          event.snapshot.child('welcomeflag').value as String?;
+      unwelcomflag = event.snapshot.child('unwelcomeflag').value as String?;
 
       // Retrieve driver's information if the welcomeFlagValue matches driverName
       _firestore.collection('drivers').get().then((snapshot) {
@@ -48,12 +50,17 @@ class _UserCheckState extends State<UserCheck> {
               urlPic = '$profileUrl';
               welcomName = '$welcomeFlagValue';
             });
+          } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Detection(intialvalue: unwelcomflag,)),
+            );
           }
         });
       });
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     final maxHeight = MediaQuery.of(context).size.height;
