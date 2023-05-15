@@ -27,9 +27,16 @@ class _SideMenuState extends State<SideMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    double containerWidth = 288.0;
+
+    if (screenWidth > 480) {
+      containerWidth = screenWidth / 2;
+    }
+
     return Scaffold(
       body: Container(
-        width: 288,
+        width: containerWidth,
         height: double.infinity,
         color: const Color(0xFF17203A),
         child: SafeArea(

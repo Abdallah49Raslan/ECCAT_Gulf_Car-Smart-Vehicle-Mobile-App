@@ -63,7 +63,7 @@ class _EntryOwnerState extends State<EntryOwner>
       Icons.home,
       size: 30.h,
     ),
-   Icon(
+    Icon(
       Icons.battery_5_bar,
       size: 30.h,
     ),
@@ -105,6 +105,12 @@ class _EntryOwnerState extends State<EntryOwner>
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    double containerWidth = 288.0;
+
+    if (screenWidth > 480) {
+      containerWidth = screenWidth / 2;
+    }
     return Scaffold(
       backgroundColor: backgroundColor2,
       resizeToAvoidBottomInset: false,
@@ -115,7 +121,7 @@ class _EntryOwnerState extends State<EntryOwner>
           AnimatedPositioned(
             duration: const Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            width: 288,
+            width: containerWidth - 50,
             left: isSideMenuClosed ? -288 : 0,
             height: MediaQuery.of(context).size.height,
             child: const SideMenu(),
@@ -140,7 +146,7 @@ class _EntryOwnerState extends State<EntryOwner>
           AnimatedPositioned(
             duration: Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            left: isSideMenuClosed ? 0 : 220,
+            left: isSideMenuClosed ? 0 : containerWidth - 100,
             top: 16,
             child: MenuBtn(
               riveOnInit: (artboard) {

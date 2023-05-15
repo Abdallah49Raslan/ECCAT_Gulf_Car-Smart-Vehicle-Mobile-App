@@ -104,6 +104,12 @@ class _EntryDriverState extends State<EntryDriver>
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    double containerWidth = 288.0;
+
+    if (screenWidth > 480) {
+      containerWidth = screenWidth / 2;
+    }
     return Scaffold(
       backgroundColor: backgroundColor2,
       resizeToAvoidBottomInset: false,
@@ -114,7 +120,7 @@ class _EntryDriverState extends State<EntryDriver>
           AnimatedPositioned(
             duration: const Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            width: 288,
+            width: containerWidth - 50,
             left: isSideMenuClosed ? -288 : 0,
             height: MediaQuery.of(context).size.height,
             child: const SideMenu(),
@@ -139,8 +145,8 @@ class _EntryDriverState extends State<EntryDriver>
           AnimatedPositioned(
             duration: Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            left: isSideMenuClosed ? 0 : 220,
-            top: 16,
+            left: isSideMenuClosed ? 0 : containerWidth - 100,
+            top: 30,
             child: MenuBtn(
               riveOnInit: (artboard) {
                 StateMachineController controller = RiveUtils.getRiveController(

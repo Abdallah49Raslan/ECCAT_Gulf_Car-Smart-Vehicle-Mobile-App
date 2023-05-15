@@ -16,9 +16,15 @@ class DriverStartPage extends StatefulWidget {
 
 class _DriverStartPageState extends State<DriverStartPage> {
   int index = 0;
+  double fontSize = 25; // Initial font size
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth > 480) {
+      // If width is more than 480, set a new font value
+      fontSize = 30;
+    }
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -64,7 +70,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                   'specifications',
                   style: TextStyle(
                       color: redhomeColor,
-                      fontSize: 25,
+                      fontSize: 36,
                       fontWeight: FontWeight.w900),
                 ),
               ),
@@ -88,7 +94,9 @@ class _DriverStartPageState extends State<DriverStartPage> {
                           );
                         },
                         child: Container(
-                          height: (cons.maxWidth - 8) / 2,
+                          height: screenWidth > 480
+                              ? (cons.maxWidth - 8) / 3
+                              : (cons.maxWidth - 8) / 2,
                           width: (cons.maxWidth - 8) / 2,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
@@ -99,7 +107,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
                               const SpaceVH(height: 30.0),
                               Expanded(
                                 child: Container(
-                                  width: 50,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
@@ -113,7 +120,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   'Location',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ))
@@ -135,7 +142,9 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   builder: (builder) => const IoTPage()));
                         },
                         child: Container(
-                          height: (cons.maxWidth - 8) / 2,
+                          height: screenWidth > 480
+                              ? (cons.maxWidth - 8) / 3
+                              : (cons.maxWidth - 8) / 2,
                           width: (cons.maxWidth - 8) / 2,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
@@ -146,8 +155,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
                               const SpaceVH(height: 30.0),
                               Expanded(
                                 child: Container(
-                                  width: 130,
-                                  height: 130,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
@@ -164,7 +171,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   'Car Status',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 20,
+                                      fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ))
@@ -198,7 +205,9 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   builder: (builder) => const Car_page()));
                         },
                         child: Container(
-                          height: (cons.maxWidth - 8) / 2,
+                          height: screenWidth > 480
+                              ? (cons.maxWidth - 8) / 3
+                              : (cons.maxWidth - 8) / 2,
                           width: (cons.maxWidth - 8) / 2,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
@@ -209,7 +218,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
                               const SpaceVH(height: 30.0),
                               Expanded(
                                 child: Container(
-                                  width: 70,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
@@ -223,7 +231,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   'AI',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ))
@@ -246,7 +254,9 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                       const HealthCareDriver()));
                         },
                         child: Container(
-                          height: (cons.maxWidth - 8) / 2,
+                          height: screenWidth > 480
+                              ? (cons.maxWidth - 8) / 3
+                              : (cons.maxWidth - 8) / 2,
                           width: (cons.maxWidth - 8) / 2,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
@@ -257,8 +267,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
                               const SpaceVH(height: 30.0),
                               Expanded(
                                 child: Container(
-                                  width: 130,
-                                  height: 130,
                                   decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
@@ -275,7 +283,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   'Health',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 20,
+                                      fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
                               )),

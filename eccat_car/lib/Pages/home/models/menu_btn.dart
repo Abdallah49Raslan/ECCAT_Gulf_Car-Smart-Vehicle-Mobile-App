@@ -13,13 +13,20 @@ class MenuBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    double btnSize = 40.0;
+
+    if (screenWidth > 480) {
+      btnSize = 80.0;
+    }
+
     return SafeArea(
       child: GestureDetector(
         onTap: press,
         child: Container(
           margin: const EdgeInsets.only(left: 16),
-          height: 40,
-          width: 40,
+          height: btnSize,
+          width: btnSize,
           decoration: const BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,

@@ -19,6 +19,14 @@ class SideMenuTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    double containerWidth = 288.0;
+    double profileRadius = 40.0;
+
+    if (screenWidth > 480) {
+      profileRadius = 80.0;
+      containerWidth = screenWidth / 2;
+    }
     return Column(
       children: [
         const Padding(
@@ -36,7 +44,7 @@ class SideMenuTile extends StatelessWidget {
               curve: Curves.fastOutSlowIn,
               // Much better
               height: 56,
-              width: isActive ? 288 : 0,
+              width: isActive ? containerWidth : 0,
               left: 0,
               child: Container(
                 decoration: const BoxDecoration(
