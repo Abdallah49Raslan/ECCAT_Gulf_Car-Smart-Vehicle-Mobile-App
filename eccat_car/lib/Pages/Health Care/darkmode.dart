@@ -69,6 +69,14 @@ class _darkmodeState extends State<HealthCareDriver> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    int index = 1;
+    double fontSize = 25;
+    double childAspectvalue = 2;
+    if (screenWidth > 480) {
+      // If width is more than 480, set a new font value
+      fontSize = 30;
+      childAspectvalue = 2.5;
+    }
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -78,26 +86,30 @@ class _darkmodeState extends State<HealthCareDriver> {
         padding: EdgeInsets.only(top: 70, right: 10, left: 10),
         decoration: BoxDecoration(
           image: DecorationImage(
-              // fit: BoxFit.fill,
+              //fit: BoxFit.fill,
               image: AssetImage("assets/icons/Car.png")),
         ),
-        child: GridView(
-          shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            mainAxisSpacing: 20,
-            crossAxisSpacing: 10,
-            childAspectRatio: 2,
-          ),
-          children: [
-            //Driver Screen
-            drivergrid(),
-            //Passenger1 Screen
-            passenger1grid(),
-            //Passenger2 Screen
-            passenger2grid()
-          ],
-        ),
+        child: LayoutBuilder(builder: (context, cons) {
+          return Center(
+            child: GridView(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 10,
+                childAspectRatio: childAspectvalue,
+              ),
+              children: [
+                //Driver Screen
+                drivergrid(),
+                //Passenger1 Screen
+                passenger1grid(),
+                //Passenger2 Screen
+                passenger2grid()
+              ],
+            ),
+          );
+        }),
       ),
     );
   }
