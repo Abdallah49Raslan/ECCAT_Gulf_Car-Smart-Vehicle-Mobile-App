@@ -8,12 +8,13 @@ import 'package:rive/rive.dart';
 import '../../../core/colors.dart';
 import '../../../core/rive_utils.dart';
 import '../../../functions/alertexitapp.dart';
+import '../../../lists/search.dart';
 import '../../AI/car_page.dart';
 import '../../AI/search_page.dart';
 import '../../Health Care/darkmode.dart';
 import '../../home/components/side_menu.dart';
 import '../../home/models/menu_btn.dart';
-import '../../Iot/iot.dart';
+import '../../Iot/final_design.dart';
 
 // We are done with our 5th and last episode
 // Thank you so much for watching entire serise
@@ -46,7 +47,7 @@ class _EntryDriverState extends State<EntryDriver>
     HealthCareDriver(),
     DriverStartPage(),
     IoTPage(),
-    AboutAPP(),
+    DataSearchPage(),
   ];
 
   final items = <Widget>[
@@ -67,7 +68,7 @@ class _EntryDriverState extends State<EntryDriver>
       size: 30.h,
     ),
     Icon(
-      Icons.app_blocking,
+      Icons.search,
       size: 30.h,
     ),
   ];
@@ -109,6 +110,8 @@ class _EntryDriverState extends State<EntryDriver>
 
     if (screenWidth > 480) {
       containerWidth = screenWidth / 2;
+    } else {
+      containerWidth = 288.0;
     }
     return Scaffold(
       backgroundColor: backgroundColor2,
@@ -146,7 +149,7 @@ class _EntryDriverState extends State<EntryDriver>
             duration: Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
             left: isSideMenuClosed ? 0 : containerWidth - 100,
-            top: 30,
+            top: 12,
             child: MenuBtn(
               riveOnInit: (artboard) {
                 StateMachineController controller = RiveUtils.getRiveController(

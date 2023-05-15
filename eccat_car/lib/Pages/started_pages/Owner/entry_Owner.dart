@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:eccat_car/Pages/Iot/iot.dart';
+import 'package:eccat_car/Pages/Iot/final_design.dart';
 import 'package:eccat_car/Pages/User_Profile.dart';
 import 'package:eccat_car/Pages/started_pages/Owner/Owner_start.dart';
 import 'package:flutter/cupertino.dart';
