@@ -73,3 +73,5 @@ const TextStyle headline5 = TextStyle(
   color: redhomeColor,
   fontFamily: "Poppins",
 );
+
+double normalfontSize = 20;

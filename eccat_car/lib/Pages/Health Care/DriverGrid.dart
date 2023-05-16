@@ -29,13 +29,13 @@ Widget drivergrid() {
         // If width is more than 480, set a new font value
         normalfontSize = 30;
         titlefontSize = 35;
-        tivefontSize = 25;
+        tivefontSize = 30;
         hearticonvalue = 30;
         tempiconvalue = 35;
         oxiiconvalue = 45;
         coholiconvalue = 28;
         mainSizedBox = 15;
-        wideSizedBox = 20;
+        wideSizedBox = 30;
       }
       return Container(
         width: MediaQuery.of(context).size.width,

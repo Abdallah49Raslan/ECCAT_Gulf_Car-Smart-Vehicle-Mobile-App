@@ -70,11 +70,10 @@ class _darkmodeState extends State<HealthCareDriver> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     int index = 1;
-    double fontSize = 25;
+
     double childAspectvalue = 2;
     if (screenWidth > 480) {
       // If width is more than 480, set a new font value
-      fontSize = 30;
       childAspectvalue = 2.5;
     }
     return Scaffold(

@@ -17,6 +17,7 @@ import 'Pages/Security/Face_reco.dart';
 import 'Pages/started_pages/Driver/entry_Driver.dart';
 import 'Pages/started_pages/Owner/entry_Owner.dart';
 import 'onboding_screen.dart';
+import 'package:eccat_car/core/text_style.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -123,6 +124,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth > 480) {
+      // If width is more than 480, set a new font value
+      normalfontSize = 30;
+    }
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,

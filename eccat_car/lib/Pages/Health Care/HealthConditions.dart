@@ -8,6 +8,7 @@ import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:eccat_car/core/text_style.dart';
 
 void playSampleSound() async {
   AudioPlayer player = AudioPlayer();
@@ -27,7 +28,7 @@ Widget DTemperatureCondition() {
     Drivertemp = "Normal";
     return Text('$Drivertemp',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -50,7 +51,7 @@ Widget DTemperatureCondition() {
     ));
     return Text('$Drivertemp',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -69,7 +70,7 @@ Widget P1TemperatureCondition() {
     P1temp = "Normal";
     return Text('$P1temp',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -92,7 +93,7 @@ Widget P1TemperatureCondition() {
     ));
     return Text('$P1temp',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -111,7 +112,7 @@ Widget P2TemperatureCondition() {
     P2temp = "Normal";
     return Text('$P2temp',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -134,7 +135,7 @@ Widget P2TemperatureCondition() {
     ));
     return Text('$P2temp',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -153,7 +154,7 @@ Widget DHeartRateCondition() {
     Driverheart = " Normal";
     return Text('$Driverheart',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -176,7 +177,7 @@ Widget DHeartRateCondition() {
     ));
     return Text('$Driverheart',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -195,7 +196,7 @@ Widget P1HeartRateCondition() {
     P1heart = " Normal";
     return Text('$P1heart',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -218,7 +219,7 @@ Widget P1HeartRateCondition() {
     ));
     return Text('$P1heart',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -237,7 +238,7 @@ Widget P2HeartRateCondition() {
     P2heart = " Normal";
     return Text('$P2heart',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -260,7 +261,7 @@ Widget P2HeartRateCondition() {
     ));
     return Text('$P2heart',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -279,7 +280,7 @@ Widget DOximeterCondition() {
     Driveroxi = "Normal";
     return Text('$Driveroxi',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -302,7 +303,7 @@ Widget DOximeterCondition() {
     ));
     return Text('$Driveroxi',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -321,7 +322,7 @@ Widget P1OximeterCondition() {
     P1oxi = "Normal";
     return Text('$P1oxi',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -344,7 +345,7 @@ Widget P1OximeterCondition() {
     ));
     return Text('$P1oxi',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -363,7 +364,7 @@ Widget P2OximeterCondition() {
     P2oxi = "Normal";
     return Text('$P2oxi',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
@@ -386,7 +387,7 @@ Widget P2OximeterCondition() {
     ));
     return Text('$P2oxi',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
@@ -404,14 +405,14 @@ Widget DAlcoholCondition() {
   } else if (displayalcohol == "Negative") {
     return Text('Normal',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: primaryColor,
         ));
   } else {
     return Text('Abnormal',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: normalfontSize,
           fontWeight: FontWeight.bold,
           color: Color(0XFFC6372A),
         ));
