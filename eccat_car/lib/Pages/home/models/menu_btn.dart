@@ -1,3 +1,4 @@
+import 'package:eccat_car/core/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
@@ -25,10 +26,10 @@ class MenuBtn extends StatelessWidget {
         onTap: press,
         child: Container(
           margin: const EdgeInsets.only(left: 16),
-          height: btnSize,
-          width: btnSize,
-          decoration: const BoxDecoration(
-            color: Colors.white,
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+            color: backgroundColor2, // Set the background color to black
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
