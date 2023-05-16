@@ -85,26 +85,31 @@ class _darkmodeState extends State<HealthCareDriver> {
         padding: EdgeInsets.only(top: 70, right: 10, left: 10),
         decoration: BoxDecoration(
           image: DecorationImage(
-              //fit: BoxFit.fill,
-              image: AssetImage("assets/icons/Car.png")),
+              image: AssetImage(
+            "assets/icons/Car.png",
+          )),
         ),
         child: LayoutBuilder(builder: (context, cons) {
           return Center(
-            child: GridView(
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 10,
-                childAspectRatio: childAspectvalue,
-              ),
+            child: Column(
               children: [
-                //Driver Screen
-                drivergrid(),
-                //Passenger1 Screen
-                passenger1grid(),
-                //Passenger2 Screen
-                passenger2grid()
+                GridView(
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: childAspectvalue,
+                  ),
+                  children: [
+                    //Driver Screen
+                    drivergrid(),
+                    //Passenger1 Screen
+                    passenger1grid(),
+                    //Passenger2 Screen
+                    passenger2grid()
+                  ],
+                ),
               ],
             ),
           );

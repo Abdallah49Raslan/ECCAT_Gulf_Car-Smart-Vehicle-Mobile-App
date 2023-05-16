@@ -124,11 +124,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth > 480) {
-      // If width is more than 480, set a new font value
-      normalfontSize = 30;
-    }
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,

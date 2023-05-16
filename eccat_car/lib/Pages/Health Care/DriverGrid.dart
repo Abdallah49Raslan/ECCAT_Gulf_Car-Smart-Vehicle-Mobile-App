@@ -35,7 +35,7 @@ Widget drivergrid() {
         oxiiconvalue = 45;
         coholiconvalue = 28;
         mainSizedBox = 15;
-        wideSizedBox = 30;
+        wideSizedBox = 120;
       }
       return Container(
         width: MediaQuery.of(context).size.width,

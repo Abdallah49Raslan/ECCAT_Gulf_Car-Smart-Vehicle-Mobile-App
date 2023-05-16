@@ -34,7 +34,7 @@ Widget passenger2grid() {
         oxiiconvalue = 45;
         coholiconvalue = 28;
         mainSizedBox = 15;
-        wideSizedBox = 45;
+        wideSizedBox = 140;
       }
       return Container(
         width: MediaQuery.of(context).size.width,
