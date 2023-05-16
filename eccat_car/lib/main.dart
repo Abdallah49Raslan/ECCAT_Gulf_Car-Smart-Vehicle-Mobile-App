@@ -17,6 +17,7 @@ import 'Pages/Security/Face_reco.dart';
 import 'Pages/started_pages/Driver/entry_Driver.dart';
 import 'Pages/started_pages/Owner/entry_Owner.dart';
 import 'onboding_screen.dart';
+import 'package:eccat_car/core/text_style.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

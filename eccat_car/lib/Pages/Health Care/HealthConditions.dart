@@ -8,6 +8,7 @@ import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:eccat_car/core/text_style.dart';
 
 void playSampleSound() async {
   AudioPlayer player = AudioPlayer();

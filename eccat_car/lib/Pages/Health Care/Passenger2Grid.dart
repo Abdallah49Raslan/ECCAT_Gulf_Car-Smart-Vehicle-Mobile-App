@@ -9,149 +9,180 @@ import '../../core/colors.dart';
 import '../../core/globalvariables.dart';
 import 'HealthConditions.dart';
 
-
 Widget passenger2grid() {
-  return Container(
-    padding: EdgeInsets.only(right: 5, left: 1),
-    decoration: BoxDecoration(
-      color: Colors.white10,
-      border: Border.all(color: borderColor, width: 2),
-      borderRadius: BorderRadius.circular(6),
-    ),
-    child: Column(
-      children: [
-        SizedBox(
-          height: 20,
+  return Center(
+    child: LayoutBuilder(builder: (context, cons) {
+      double screenWidth = MediaQuery.of(context).size.width;
+      double screenHeight = MediaQuery.of(context).size.height;
+      int index = 1;
+      double normalfontSize = 20;
+      double titlefontSize = 25;
+      double tivefontSize = 15;
+      double hearticonvalue = 20;
+      double tempiconvalue = 25;
+      double oxiiconvalue = 35;
+      double coholiconvalue = 18;
+      double mainSizedBox = 5;
+      double wideSizedBox = 35;
+      if (screenWidth > 480) {
+        // If width is more than 480, set a new font value
+        normalfontSize = 30;
+        titlefontSize = 35;
+        tivefontSize = 25;
+        hearticonvalue = 30;
+        tempiconvalue = 35;
+        oxiiconvalue = 45;
+        coholiconvalue = 28;
+        mainSizedBox = 15;
+        wideSizedBox = 140;
+      }
+      return Container(
+        width: MediaQuery.of(context).size.width,
+        height: (screenHeight - 70) / 3,
+        padding: EdgeInsets.only(right: 5, left: 1),
+        decoration: BoxDecoration(
+          color: Colors.white10,
+          border: Border.all(color: borderColor, width: 2),
+          borderRadius: BorderRadius.circular(6),
         ),
-        Text(" Passenger 2",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            )),
-        SizedBox(
-          height: 20,
-        ),
-        Row(
+        child: Column(
           children: [
-            Column(
-              children: [
-                SvgPicture.asset("assets/icons/heart-rate.svg",
-                    height: 20, width: 20, color: Colors.red),
-                SizedBox(
-                  height: 5,
-                ),
-                SvgPicture.asset(
-                    "assets/icons/temperature-high-solid-svgrepo-com.svg",
-                    height: 25,
-                    width: 25,
-                    color: Colors.orange),
-                SizedBox(
-                  height: 5,
-                ),
-                Image.asset(
-                  "assets/icons/oxi3.png",
-                  height: 35,
-                  width: 35,
-                  color: Colors.blue,
-                ),
-              ],
-            ),
-            //Label Column
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Heart Rate",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "Temp",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "Oximeter",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ],
-            ),
             SizedBox(
-              width: 35,
+              height: 20,
             ),
-            //Values Column
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  '$P2displayheartRate',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  '$P2displaytemp',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  '$P2displayoximeter',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+            Text(" Passenger 2",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: titlefontSize,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                )),
+            SizedBox(
+              height: 20,
             ),
-            Spacer(),
-            //Normal&Abnormal Column
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            Row(
               children: [
-                P2HeartRateCondition(),
-                SizedBox(
-                  height: 5,
+                Column(
+                  children: [
+                    SvgPicture.asset("assets/icons/heart-rate.svg",
+                        height: hearticonvalue,
+                        width: hearticonvalue,
+                        color: Colors.red),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    SvgPicture.asset(
+                        "assets/icons/temperature-high-solid-svgrepo-com.svg",
+                        height: tempiconvalue,
+                        width: tempiconvalue,
+                        color: Colors.orange),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    Image.asset(
+                      "assets/icons/oxi3.png",
+                      height: oxiiconvalue,
+                      width: oxiiconvalue,
+                      color: Colors.blue,
+                    ),
+                  ],
                 ),
-                P2TemperatureCondition(),
-                SizedBox(
-                  height: 5,
+                //Label Column
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Heart Rate",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontSize: normalfontSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    Text(
+                      "Temp",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontSize: normalfontSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    Text(
+                      "Oximeter",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontSize: normalfontSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ],
                 ),
-                P2OximeterCondition(),
+                SizedBox(
+                  width: wideSizedBox,
+                ),
+                //Values Column
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '$P2displayheartRate',
+                      style: TextStyle(
+                        fontSize: normalfontSize,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    Text(
+                      '$P2displaytemp',
+                      style: TextStyle(
+                        fontSize: normalfontSize,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    Text(
+                      '$P2displayoximeter',
+                      style: TextStyle(
+                        fontSize: normalfontSize,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                //Normal&Abnormal Column
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    P2HeartRateCondition(),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    P2TemperatureCondition(),
+                    SizedBox(
+                      height: mainSizedBox,
+                    ),
+                    P2OximeterCondition(),
+                  ],
+                ),
               ],
             ),
           ],
         ),
-      ],
-    ),
+      );
+    }),
   );
 }
