@@ -110,6 +110,8 @@ class _EntryOwnerState extends State<EntryOwner>
 
     if (screenWidth > 480) {
       containerWidth = screenWidth / 2;
+    } else {
+      containerWidth = 288;
     }
     return Scaffold(
       backgroundColor: backgroundColor2,

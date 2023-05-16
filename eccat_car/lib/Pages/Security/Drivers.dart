@@ -49,8 +49,8 @@ class _DriversPageState extends State<DriversPage> {
       }
 
       await driversCollection.add({
-        'driverName': 'sama',
-        'age': 21,
+        'driverName': 'Dr.Ahmed  ',
+        'age': 35,
         'profilePicture': _uploadedImageUrl,
       });
     }

@@ -30,7 +30,7 @@ class _FingerprintPageState extends State<Detection> {
   }
 
   void activateListeners() {
-    outputstream = database.child('Face recognition').onValue.listen((event) {
+    outputstream = database.child('Security').onValue.listen((event) {
       final Object? Unwelcom = event.snapshot.child('unwelcomeflag').value;
 
       // Retrieve driver's information if the welcomeFlagValue matches driverName
@@ -123,7 +123,7 @@ class _FingerprintPageState extends State<Detection> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => EntryOwner(
-                            initialIndex: 0,
+                            initialIndex: 2,
                           )),
                 );
               },

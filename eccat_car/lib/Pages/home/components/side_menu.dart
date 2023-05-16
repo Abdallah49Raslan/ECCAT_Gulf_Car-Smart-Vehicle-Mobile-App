@@ -15,7 +15,7 @@ import 'info_card.dart';
 import 'side_menu_tile.dart';
 
 class SideMenu extends StatefulWidget {
-  const SideMenu({super.key});
+  const SideMenu({Key? key}) : super(key: key);
 
   @override
   State<SideMenu> createState() => _SideMenuState();
@@ -60,9 +60,11 @@ class _SideMenuState extends State<SideMenu> {
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const UserInfoPage()));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const UserInfoPage(),
+                            ),
+                          );
                         },
                         child: StreamBuilder<DocumentSnapshot>(
                           stream: FirebaseFirestore.instance
@@ -102,14 +104,14 @@ class _SideMenuState extends State<SideMenu> {
                           },
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Expanded(
                         child: Text(
                           ' ${userName ?? ''}',
                           style: headline2.copyWith(
-                            fontSize: 28.0,
+                            fontSize: screenWidth > 480 ? 28.0 : 16.0,
                           ),
                         ),
                       ),
@@ -121,22 +123,22 @@ class _SideMenuState extends State<SideMenu> {
                 padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),
                 child: Text(
                   "Browse".toUpperCase(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: Colors.white70),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Colors.white70,
+                        fontSize: screenWidth > 480 ? 20.0 : 16.0,
+                      ),
                 ),
               ),
               ...sideMenus.map(
                 (menu) => SideMenuTile(
                   menu: menu,
                   riveonInit: (artboard) {
-                    // Let me show you if user click on the menu how to show the animation
+// Let me show you if user click on the menu how to show the animation
                     StateMachineController controller =
                         RiveUtils.getRiveController(artboard,
                             stateMachineName: menu.stateMachineName);
                     menu.input = controller.findSMI("active") as SMIBool;
-                    // See as we click them it start animate
+// See as we click them it start animate
                   },
                   press: () {
                     menu.input!.change(true);
@@ -151,41 +153,6 @@ class _SideMenuState extends State<SideMenu> {
                   isActive: selectedMenu == menu,
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),
-              //   child: Text(
-              //     "History".toUpperCase(),
-              //     style: Theme.of(context)
-              //         .textTheme
-              //         .titleMedium!
-              //         .copyWith(color: Colors.white70),
-              //   ),
-              // ),
-              // ...sideMenu2.map(
-              //   (menu) => SideMenuTile(
-              //     menu: menu,
-              //     riveonInit: (artboard) {
-              //       // Let me show you if user click on the menu how to show the animation
-              //       StateMachineController controller =
-              //           RiveUtils.getRiveController(artboard,
-              //               stateMachineName: menu.stateMachineName);
-              //       menu.input = controller.findSMI("active") as SMIBool;
-              //       // See as we click them it start animate
-              //     },
-              //     press: () {
-              //       menu.input!.change(true);
-              //       Future.delayed(const Duration(seconds: 1), () {
-              //         menu.input!.change(false);
-              //         menu.onTap?.call(context);
-              //       });
-              //       setState(() {
-              //         selectedMenu = menu;
-              //       });
-              //     },
-              //     isActive: selectedMenu == menu,
-              //   ),
-              // ),
-
               const Spacer(flex: 6),
               Mainbutton(
                 onTap: () {

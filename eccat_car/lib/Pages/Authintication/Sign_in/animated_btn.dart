@@ -49,7 +49,7 @@ class AnimatedBtn extends StatelessWidget {
                   Text(
                     "Start The Car App",
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       color: redhomeColor,
                     ),
                   ),

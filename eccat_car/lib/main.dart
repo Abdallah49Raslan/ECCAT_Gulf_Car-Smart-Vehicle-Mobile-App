@@ -146,7 +146,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: OnboardingScreen1(),
+      child: AuthPage(),
     );
   }
 }

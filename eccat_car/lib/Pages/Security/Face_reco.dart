@@ -24,6 +24,7 @@ class _FaceRecoState extends State<FaceReco> {
   String? Ages;
   String? welcomName;
   String? unwelcomflag;
+  String? finger;
 
   @override
   void initState() {
@@ -32,10 +33,12 @@ class _FaceRecoState extends State<FaceReco> {
   }
 
   void activateListeners() {
-    outputstream1 = database.child('Face recognition').onValue.listen((event) {
+    outputstream1 = database.child('Security').onValue.listen((event) {
       final String? welcomeFlagValue =
           event.snapshot.child('welcomeflag').value as String?;
       unwelcomflag = event.snapshot.child('unwelcomeflag').value as String?;
+      final String? fingerprint =
+          event.snapshot.child('fingerprint').value as String?;
 
       // Retrieve driver's information if the welcomeFlagValue matches driverName
       _firestore.collection('drivers').get().then((snapshot) {
@@ -44,17 +47,21 @@ class _FaceRecoState extends State<FaceReco> {
           final Object? driverAge = doc.get('age');
           final Object? profileUrl = doc.get('profilePicture');
 
-          if (welcomeFlagValue == name) {
+          if (fingerprint == name) {
             setState(() {
               Driver_name = '$name';
               Ages = '$driverAge';
               urlPic = '$profileUrl';
               welcomName = '$welcomeFlagValue';
+              finger = '$fingerprint';
             });
           } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Detection(intialvalue: unwelcomflag,)),
+              MaterialPageRoute(
+                  builder: (context) => Detection(
+                        intialvalue: unwelcomflag,
+                      )),
             );
           }
         });
@@ -128,7 +135,7 @@ class _FaceRecoState extends State<FaceReco> {
                     child: Column(
                       children: [
                         Text(
-                          'The Driver is: $Driver_name \n         Age: $Ages',
+                          'The Latest Driver is: $Driver_name \n               Age: $Ages',
                           style: Security,
                         ),
                       ],
