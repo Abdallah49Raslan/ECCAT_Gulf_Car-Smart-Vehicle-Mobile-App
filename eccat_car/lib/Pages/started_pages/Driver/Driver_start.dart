@@ -70,7 +70,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                   'specifications',
                   style: TextStyle(
                       color: redhomeColor,
-                      fontSize: 36,
+                      fontSize: 30,
                       fontWeight: FontWeight.w900),
                 ),
               ),
@@ -130,7 +130,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                       ),
 
                       SizedBox(
-                        width: 8,
+                        width: 4,
                       ),
 
                       //carstatus
@@ -185,7 +185,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
               ),
 
               SizedBox(
-                height: 10,
+                height: 3,
               ),
 
               //2w
@@ -241,7 +241,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                       ),
 
                       SizedBox(
-                        width: 8,
+                        width: 4,
                       ),
 
                       //health
@@ -294,9 +294,6 @@ class _DriverStartPageState extends State<DriverStartPage> {
                     ],
                   );
                 }),
-              ),
-              SizedBox(
-                height: 50,
               ),
             ],
           ),

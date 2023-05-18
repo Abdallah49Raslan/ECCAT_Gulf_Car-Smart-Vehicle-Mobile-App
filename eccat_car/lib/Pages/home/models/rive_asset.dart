@@ -1,3 +1,4 @@
+import 'package:eccat_car/Pages/AI/person_page.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import '../../../lists/chat.dart';
@@ -45,12 +46,13 @@ List<RiveAsset> sideMenus = [
   ),
   RiveAsset(
     "assets/RiveAssets/icons.riv",
-    artboard: "BELL",
-    stateMachineName: "BELL_Interactivity",
-    title: "Notification",
+    artboard: "TIMER",
+    stateMachineName: "TIMER_Interactivity",
+    title: "History OF ECCAT",
     onTap: (BuildContext context) {
-      // Navigator.push(context,
-      //     MaterialPageRoute(builder: (context) => NotificationsPage()));
+      // Navigate to the screen HistoryPage
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => WebViewApp()));
     },
   ),
   RiveAsset(

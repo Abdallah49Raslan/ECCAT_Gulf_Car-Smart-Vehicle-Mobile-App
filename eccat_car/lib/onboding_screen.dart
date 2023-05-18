@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:eccat_car/core/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
@@ -31,20 +32,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: blackBG,
       body: Stack(
         children: [
           Positioned(
             width: MediaQuery.of(context).size.width * 1.7,
-            bottom: 200,
-            left: 100,
-            child: Image.asset("assets/Backgrounds/Spline.png"),
+            child: Image.asset("assets/image/home_page.jpg"),
           ),
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 10),
-            ),
-          ),
-          const RiveAnimation.asset("assets/RiveAssets/shapes.riv"),
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
@@ -64,10 +58,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Container(
-                      height: 400,
+                      height: 300,
                       child: Image.asset(
-                        'assets/image/App_logo.png',
-                        height: 50,
+                        'assets/image/Home_logo.png',
                       ),
                     ),
                   ),
@@ -81,11 +74,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           width: 260,
                           child: Column(
                             children: const [
-                              SpaceVH(height: 350.0),
+                              SpaceVH(height: 250.0),
                               Text(
                                 splashText,
                                 textAlign: TextAlign.left,
-                                style: headline22,
+                                style: headline2,
                               ),
                             ],
                           ),

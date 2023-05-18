@@ -140,14 +140,14 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           );
                         },
                         child: RichText(
-                          text: const TextSpan(children: [
+                          text: TextSpan(children: [
                             TextSpan(
                               text: 'Remember the password ! ',
                               style: headline3,
                             ),
                             TextSpan(
                               text: ' Login',
-                              style: headline4,
+                              style: headline4.copyWith(color: primaryColor),
                             ),
                           ]),
                         ),

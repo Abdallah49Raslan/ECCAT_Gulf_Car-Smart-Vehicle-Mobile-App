@@ -10,10 +10,10 @@ class AnimatedBtn extends StatelessWidget {
     Key? key,
     required RiveAnimationController btnAnimationColtroller,
     required this.press,
-  })  : _btnAnimationColtroller = btnAnimationColtroller,
+  })  : _btnAnimationController = btnAnimationColtroller,
         super(key: key);
 
-  final RiveAnimationController _btnAnimationColtroller;
+  final RiveAnimationController _btnAnimationController;
   final VoidCallback press;
 
   @override
@@ -31,28 +31,20 @@ class AnimatedBtn extends StatelessWidget {
         width: screenWidth > 480 ? 300 : 260,
         child: Stack(
           children: [
-            // Just a button no animation
-            // Let's fix that
             RiveAnimation.asset(
               "assets/RiveAssets/button.riv",
-              // Once we restart the app it shows the animation
-              controllers: [_btnAnimationColtroller],
+              controllers: [_btnAnimationController],
             ),
             Positioned.fill(
               // But it's not center
               top: 8,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(CupertinoIcons.arrow_right),
                   SizedBox(width: 8),
-                  Text(
-                    "Start The Car App",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: redhomeColor,
-                    ),
-                  ),
+                  Text("Start The Car App",
+                      style: headline2.copyWith(color: primaryColor)),
                 ],
               ),
             )

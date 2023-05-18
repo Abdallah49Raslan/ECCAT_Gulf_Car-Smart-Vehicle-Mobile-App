@@ -161,7 +161,7 @@ class _SignInFormState extends State<SignInForm> {
                     },
                     child: const Text(
                       'Forgot Password?',
-                      style: headline5,
+                      style: headline3,
                     ),
                   ),
                 ),

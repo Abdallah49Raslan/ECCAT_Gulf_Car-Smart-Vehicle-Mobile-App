@@ -36,7 +36,7 @@ Future<Object?> customSigninDialog(BuildContext context,
           body: SingleChildScrollView(
             child: Column(
               children: [
-                const Text(
+                Text(
                   "Sign In",
                   style: headline,
                 ),
@@ -55,7 +55,7 @@ Future<Object?> customSigninDialog(BuildContext context,
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        " OR Don't have an Accounet",
+                        " OR Don't have an Account",
                         style: headline3,
                       ),
                     ),
@@ -66,7 +66,7 @@ Future<Object?> customSigninDialog(BuildContext context,
                   padding: EdgeInsets.symmetric(vertical: 24),
                   child: Text(
                     "Sign up with Email",
-                    style: TextStyle(color: Colors.black54),
+                    style: TextStyle(color: primaryColor),
                   ),
                 ),
                 Row(

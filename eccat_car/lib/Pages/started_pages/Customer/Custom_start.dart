@@ -67,7 +67,7 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
                   'specifications',
                   style: TextStyle(
                       color: redhomeColor,
-                      fontSize: 36,
+                      fontSize: 30,
                       fontWeight: FontWeight.w900),
                 ),
               ),
@@ -127,7 +127,7 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
                       ),
 
                       SizedBox(
-                        width: 8,
+                        width: 4,
                       ),
 
                       //health
@@ -179,9 +179,6 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
                     ],
                   );
                 }),
-              ),
-              SizedBox(
-                height: 50,
               ),
             ],
           ),

@@ -70,7 +70,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                   'specifications',
                   style: TextStyle(
                       color: redhomeColor,
-                      fontSize: 36,
+                      fontSize: 30,
                       fontWeight: FontWeight.w900),
                 ),
               ),
@@ -130,7 +130,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                       ),
 
                       SizedBox(
-                        width: 8,
+                        width: 4,
                       ),
 
                       //Iot
@@ -168,7 +168,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                                   child: Container(
                                 //margin: EdgeInsets.only(top: 20),
                                 child: const Text(
-                                  'Car Status',
+                                  'IoT',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -185,7 +185,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
               ),
 
               SizedBox(
-                height: 10,
+                height: 3,
               ),
 
               //2w
@@ -241,7 +241,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                       ),
 
                       SizedBox(
-                        width: 8,
+                        width: 4,
                       ),
 
                       //Health
@@ -280,7 +280,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                                 child: Container(
                                   //margin: EdgeInsets.only(top: 20),
                                   child: const Text(
-                                    'Health',
+                                    'Health Care',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 25,

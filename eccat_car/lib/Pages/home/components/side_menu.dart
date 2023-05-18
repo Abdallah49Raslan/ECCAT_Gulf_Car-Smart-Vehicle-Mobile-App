@@ -36,7 +36,7 @@ class _SideMenuState extends State<SideMenu> {
 
     return Scaffold(
       body: Container(
-        width: containerWidth,
+        width: screenWidth > 480 ? containerWidth : 288,
         height: double.infinity,
         color: const Color(0xFF17203A),
         child: SafeArea(
@@ -111,7 +111,7 @@ class _SideMenuState extends State<SideMenu> {
                         child: Text(
                           ' ${userName ?? ''}',
                           style: headline2.copyWith(
-                            fontSize: screenWidth > 480 ? 28.0 : 16.0,
+                            fontSize: screenWidth > 480 ? 28.0 : 24.0,
                           ),
                         ),
                       ),

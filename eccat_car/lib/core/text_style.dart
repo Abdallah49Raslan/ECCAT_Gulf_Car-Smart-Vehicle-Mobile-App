@@ -15,7 +15,7 @@ const TextStyle headPage2 = TextStyle(
 
 const TextStyle headline = TextStyle(
   fontSize: 36,
-  color: redhomeColor,
+  color: primaryColor,
   fontWeight: FontWeight.bold,
 );
 

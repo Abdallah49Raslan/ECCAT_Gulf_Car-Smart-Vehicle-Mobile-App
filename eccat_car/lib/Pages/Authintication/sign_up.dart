@@ -55,7 +55,7 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 //head of page
                 const SpaceVH(height: 30.0),
-                const Text(
+                Text(
                   'Create new account',
                   style: headline,
                 ),
@@ -218,14 +218,14 @@ class _SignUpPageState extends State<SignUpPage> {
                             builder: (context) => const OnboardingScreen()));
                   },
                   child: RichText(
-                    text: const TextSpan(children: [
+                    text: TextSpan(children: [
                       TextSpan(
                         text: 'Have an account? ',
                         style: headline3,
                       ),
                       TextSpan(
                         text: ' Sign In',
-                        style: headline5,
+                        style: headline4.copyWith(color: primaryColor),
                       ),
                     ]),
                   ),
