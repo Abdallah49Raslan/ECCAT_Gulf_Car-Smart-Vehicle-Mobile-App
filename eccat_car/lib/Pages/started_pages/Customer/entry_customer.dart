@@ -10,7 +10,7 @@ import '../../../core/rive_utils.dart';
 import '../../../functions/alertexitapp.dart';
 import '../../AI/person_page.dart';
 import '../../Health Care/Passenger1.dart';
-import '../../Security/user_check.dart';
+import '../../Security/user/user_check.dart';
 import '../../home/components/side_menu.dart';
 import '../../home/models/menu_btn.dart';
 

@@ -5,18 +5,18 @@ import 'package:eccat_car/Pages/started_pages/Owner/entry_Owner.dart';
 import 'package:eccat_car/core/colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import '../../../core/text_style.dart';
 
-import '../../core/text_style.dart';
 
-class Detection extends StatefulWidget {
+class UserDetect extends StatefulWidget {
   final String? intialvalue;
 
-  const Detection({super.key, this.intialvalue});
+  const UserDetect({super.key, this.intialvalue});
   @override
   _FingerprintPageState createState() => _FingerprintPageState();
 }
 
-class _FingerprintPageState extends State<Detection> {
+class _FingerprintPageState extends State<UserDetect> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
@@ -59,7 +59,7 @@ class _FingerprintPageState extends State<Detection> {
         centerTitle: true,
         backgroundColor: backgroundColorDark,
         title: Text(
-          "Detection",
+          "UserDetect",
           style: headline1,
         ),
       ),
@@ -134,22 +134,6 @@ class _FingerprintPageState extends State<Detection> {
               style: ElevatedButton.styleFrom(
                 primary: blueButton, // Set background color to red
               ),
-            ),
-          ),
-          const Spacer(flex: 6),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              onPressed: () {
-                database.child('Security').update({
-                  'fingerprint': 'stop',
-                });
-              },
-              child: Icon(
-                Icons.lock,
-                size: 40,
-              ),
-              backgroundColor: Colors.blue,
             ),
           ),
         ],

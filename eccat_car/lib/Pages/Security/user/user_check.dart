@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eccat_car/Pages/Security/Captures.dart';
+import 'package:eccat_car/Pages/Security/user/user_detect.dart';
 import 'package:eccat_car/core/colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-
-import '../../core/text_style.dart';
-import 'Detection.dart';
+import '../../../core/text_style.dart';
+import '../Detection.dart';
 
 class UserCheck extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class UserCheck extends StatefulWidget {
 }
 
 class _UserCheckState extends State<UserCheck> {
-   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final database = FirebaseDatabase.instance.reference();
   late StreamSubscription outputstream;
   late StreamSubscription outputstream1;
@@ -30,7 +30,7 @@ class _UserCheckState extends State<UserCheck> {
     activateListeners();
   }
 
-   void activateListeners() {
+  void activateListeners() {
     outputstream1 = database.child('Face recognition').onValue.listen((event) {
       final String? welcomeFlagValue =
           event.snapshot.child('welcomeflag').value as String?;
@@ -53,14 +53,14 @@ class _UserCheckState extends State<UserCheck> {
           } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Detection(intialvalue: unwelcomflag,)),
+              MaterialPageRoute(builder: (context) => UserDetect()),
             );
           }
         });
       });
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final maxHeight = MediaQuery.of(context).size.height;
