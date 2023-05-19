@@ -34,11 +34,11 @@ class _FaceRecoState extends State<FaceReco> {
     activateListeners();
   }
 
-  void playSampleSound() async {
+  /*void playSound() async {
     AudioPlayer player = AudioPlayer();
     await player.setAsset('assets/Security.mp3');
     player.play();
-  }
+  }*/
 
   void activateListeners() {
     outputstream1 = database.child('Security').onValue.listen((event) {
@@ -64,7 +64,7 @@ class _FaceRecoState extends State<FaceReco> {
               finger = '$fingerprint';
             });
           } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
-            SecuritySound();
+            //SecuritySound();
             AwesomeNotifications().createNotification(
                 content: NotificationContent(
               id: 30,
@@ -206,9 +206,9 @@ class _FaceRecoState extends State<FaceReco> {
     );
   }
 
-  void SecuritySound() {
+  /*void SecuritySound() {
     if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
-      return playSampleSound();
+      return playSound();
     }
-  }
+  }*/
 }

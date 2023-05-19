@@ -38,7 +38,7 @@ Widget drivergrid() {
         wideSizedBox = 120;
       }
       return Container(
-        width: MediaQuery.of(context).size.width,
+        width: screenWidth,
         height: (screenHeight - 70) / 3,
         padding: EdgeInsets.only(right: 5, left: 1),
         decoration: BoxDecoration(
