@@ -22,6 +22,8 @@ class _FingerprintPageState extends State<Detection> {
   late StreamSubscription outputstream;
   String? unAuth;
   String? urlPic;
+  bool lockOpen = true;
+  Color lockIconColor = Colors.blue;
 
   void initState() {
     super.initState();
@@ -31,7 +33,8 @@ class _FingerprintPageState extends State<Detection> {
 
   void activateListeners() {
     outputstream = database.child('Security').onValue.listen((event) {
-      final Object? Unwelcom = event.snapshot.child('unwelcomeflag').value;
+      final Object? unWelcome = event.snapshot.child('unwelcomeflag').value;
+      final Object? fingerprint = event.snapshot.child('fingerprint').value;
 
       // Retrieve driver's information if the welcomeFlagValue matches driverName
       _firestore
@@ -43,7 +46,8 @@ class _FingerprintPageState extends State<Detection> {
 
         setState(() {
           urlPic = '$profileUrl';
-          unAuth = '$Unwelcom';
+          unAuth = '$unWelcome';
+          lockOpen = (fingerprint != 'stop');
         });
       });
     });
@@ -136,23 +140,35 @@ class _FingerprintPageState extends State<Detection> {
               ),
             ),
           ),
-          const Spacer(flex: 6),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              onPressed: () {
-                database.child('Security').update({
-                  'fingerprint': 'stop',
-                });
-              },
-              child: Icon(
-                Icons.lock,
-                size: 40,
-              ),
-              backgroundColor: Colors.blue,
-            ),
-          ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (lockOpen) {
+            // Lock open button is pressed
+            database.child('Security').update({
+              'fingerprint': 'stop',
+            });
+            setState(() {
+              lockOpen = false;
+              lockIconColor = Colors.red;
+            });
+          } else {
+            // Lock button is pressed
+            database.child('Security').update({
+              'fingerprint': 'start',
+            });
+            setState(() {
+              lockOpen = true;
+              lockIconColor = Colors.blue;
+            });
+          }
+        },
+        child: Icon(
+          lockOpen ? Icons.lock_open : Icons.lock,
+          size: 40,
+        ),
+        backgroundColor: lockIconColor,
       ),
     );
   }

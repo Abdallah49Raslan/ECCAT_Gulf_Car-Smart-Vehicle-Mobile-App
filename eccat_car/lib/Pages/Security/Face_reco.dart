@@ -164,11 +164,6 @@ class _FaceRecoState extends State<FaceReco> {
                     alignment: Alignment.bottomRight,
                     child: FloatingActionButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Captures()),
-                        );
-
                         database.child('captureflag').update({
                           'capture': '1',
                         });
@@ -177,6 +172,11 @@ class _FaceRecoState extends State<FaceReco> {
                           database.child('captureflag').update({
                             'capture': '0',
                           });
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Captures()),
+                          );
                         });
                       },
                       child: Icon(
