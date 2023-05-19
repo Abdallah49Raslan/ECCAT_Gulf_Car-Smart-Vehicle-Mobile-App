@@ -79,7 +79,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
                           : null,
                   child: GestureDetector(
                     onTap: _getImage,
-                    child: urlPhoto == null && _imageFile == null
+                    child: (urlPhoto == null || urlPhoto!.isEmpty)
                         ? const Icon(Icons.person, size: 60)
                         : SizedBox(),
                   ),
