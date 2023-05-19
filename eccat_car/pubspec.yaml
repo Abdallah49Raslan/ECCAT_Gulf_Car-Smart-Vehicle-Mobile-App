@@ -109,6 +109,7 @@ flutter:
     - assets/Backgrounds/
     - assets/RiveAssets/
     - assets\Emergency.MP3
+    - assets\Security.mp3
 
   fonts:
       - family: SF Pro

@@ -114,7 +114,7 @@ class _EntryCustomerState extends State<EntryCustomer>
           AnimatedPositioned(
             duration: const Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            width: containerWidth - 50,
+            width: screenWidth > 480 ? containerWidth - 50 : 288,
             left: isSideMenuClosed ? -288 : 0,
             height: MediaQuery.of(context).size.height,
             child: const SideMenu(),

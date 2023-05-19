@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eccat_car/Pages/Security/Captures.dart';
 import 'package:eccat_car/core/colors.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:just_audio/just_audio.dart';
 
 import '../../core/text_style.dart';
 import 'Detection.dart';
@@ -32,6 +34,12 @@ class _FaceRecoState extends State<FaceReco> {
     activateListeners();
   }
 
+  void playSampleSound() async {
+    AudioPlayer player = AudioPlayer();
+    await player.setAsset('assets/Security.mp3');
+    player.play();
+  }
+
   void activateListeners() {
     outputstream1 = database.child('Security').onValue.listen((event) {
       final String? welcomeFlagValue =
@@ -56,6 +64,22 @@ class _FaceRecoState extends State<FaceReco> {
               finger = '$fingerprint';
             });
           } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
+            SecuritySound();
+            AwesomeNotifications().createNotification(
+                content: NotificationContent(
+              id: 30,
+              channelKey: "health",
+              title: "Worning",
+              body: "Driver is unauthorized ",
+              bigPicture:
+                  "asset://assets/icons/Attention-sign-icon.png", // worning icon
+              notificationLayout: NotificationLayout.BigPicture,
+              largeIcon: "asset://assets/icons/Attention-sign-icon.png",
+              wakeUpScreen: true,
+              locked: true,
+              displayOnBackground: true,
+              actionType: ActionType.Default,
+            ));
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -63,6 +87,20 @@ class _FaceRecoState extends State<FaceReco> {
                         intialvalue: unwelcomflag,
                       )),
             );
+          }
+          if (welcomeFlagValue != null && welcomeFlagValue!.isNotEmpty) {
+            AwesomeNotifications().createNotification(
+                content: NotificationContent(
+              id: 30,
+              channelKey: "health",
+              title: "Welcome",
+              body: "$welcomName",
+              notificationLayout: NotificationLayout.BigPicture,
+              wakeUpScreen: true,
+              locked: true,
+              displayOnBackground: true,
+              actionType: ActionType.Default,
+            ));
           }
         });
       });
@@ -159,33 +197,6 @@ class _FaceRecoState extends State<FaceReco> {
                       ),
                     ),
                   ),
-                  const Spacer(flex: 6),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        database.child('captureflag').update({
-                          'capture': '1',
-                        });
-
-                        Future.delayed(Duration(seconds: 5), () {
-                          database.child('captureflag').update({
-                            'capture': '0',
-                          });
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Captures()),
-                          );
-                        });
-                      },
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        size: 40,
-                      ),
-                      backgroundColor: Colors.blue,
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -193,5 +204,11 @@ class _FaceRecoState extends State<FaceReco> {
         ],
       ),
     );
+  }
+
+  void SecuritySound() {
+    if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
+      return playSampleSound();
+    }
   }
 }

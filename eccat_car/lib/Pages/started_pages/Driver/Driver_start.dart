@@ -280,7 +280,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                                   child: Container(
                                 //margin: EdgeInsets.only(top: 20),
                                 child: const Text(
-                                  'Health',
+                                  'HealthCare',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,

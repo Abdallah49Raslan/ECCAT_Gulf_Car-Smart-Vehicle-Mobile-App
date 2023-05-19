@@ -61,7 +61,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                 width: double.infinity,
               ),
 
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 10,
                   vertical: 12,
@@ -70,7 +70,7 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                   'specifications',
                   style: TextStyle(
                       color: redhomeColor,
-                      fontSize: 30,
+                      fontSize: screenWidth > 480 ? 34 : 30,
                       fontWeight: FontWeight.w900),
                 ),
               ),
@@ -116,11 +116,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                               const SpaceVH(height: 10.0),
                               Expanded(
                                   child: Container(
-                                child: const Text(
+                                child: Text(
                                   'Location',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 25,
+                                      fontSize: screenWidth > 480 ? 25 : 22,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ))
@@ -167,11 +167,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                               Expanded(
                                   child: Container(
                                 //margin: EdgeInsets.only(top: 20),
-                                child: const Text(
+                                child: Text(
                                   'IoT',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 25,
+                                      fontSize: screenWidth > 480 ? 25 : 22,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ))
@@ -227,11 +227,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                               const SpaceVH(height: 10.0),
                               Expanded(
                                   child: Container(
-                                child: const Text(
+                                child: Text(
                                   'Security',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 25,
+                                      fontSize: screenWidth > 480 ? 25 : 22,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ))
@@ -279,11 +279,11 @@ class _OwnerStartPageState extends State<OwnerStartPage> {
                               Expanded(
                                 child: Container(
                                   //margin: EdgeInsets.only(top: 20),
-                                  child: const Text(
-                                    'Health Care',
+                                  child: Text(
+                                    'Healthcare',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 25,
+                                        fontSize: screenWidth > 480 ? 25 : 22,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),

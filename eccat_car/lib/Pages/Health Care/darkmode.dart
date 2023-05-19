@@ -89,31 +89,34 @@ class _darkmodeState extends State<HealthCareDriver> {
             "assets/icons/Car.png",
           )),
         ),
-        child: LayoutBuilder(builder: (context, cons) {
-          return Center(
-            child: Column(
-              children: [
-                GridView(
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: childAspectvalue,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: LayoutBuilder(builder: (context, cons) {
+            return Center(
+              child: Column(
+                children: [
+                  GridView(
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: childAspectvalue,
+                    ),
+                    children: [
+                      //Driver Screen
+                      drivergrid(),
+                      //Passenger1 Screen
+                      passenger1grid(),
+                      //Passenger2 Screen
+                      passenger2grid()
+                    ],
                   ),
-                  children: [
-                    //Driver Screen
-                    drivergrid(),
-                    //Passenger1 Screen
-                    passenger1grid(),
-                    //Passenger2 Screen
-                    passenger2grid()
-                  ],
-                ),
-              ],
-            ),
-          );
-        }),
+                ],
+              ),
+            );
+          }),
+        ),
       ),
     );
   }

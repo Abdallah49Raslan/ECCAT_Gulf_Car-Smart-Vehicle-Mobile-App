@@ -48,7 +48,7 @@ List<RiveAsset> sideMenus = [
     "assets/RiveAssets/icons.riv",
     artboard: "TIMER",
     stateMachineName: "TIMER_Interactivity",
-    title: "History OF ECCAT",
+    title: "About ECCAT",
     onTap: (BuildContext context) {
       // Navigate to the screen HistoryPage
       Navigator.push(

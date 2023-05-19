@@ -123,7 +123,7 @@ class _EntryDriverState extends State<EntryDriver>
           AnimatedPositioned(
             duration: const Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            width: containerWidth - 50,
+            width: screenWidth > 480 ? containerWidth - 50 : 288,
             left: isSideMenuClosed ? -288 : 0,
             height: MediaQuery.of(context).size.height,
             child: const SideMenu(),
@@ -148,7 +148,7 @@ class _EntryDriverState extends State<EntryDriver>
           AnimatedPositioned(
             duration: Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
-            left: isSideMenuClosed ? 0 : containerWidth - 100,
+            left: isSideMenuClosed ? 0 : containerWidth - 50,
             top: 12,
             child: MenuBtn(
               riveOnInit: (artboard) {
