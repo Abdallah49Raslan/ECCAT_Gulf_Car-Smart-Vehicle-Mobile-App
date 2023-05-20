@@ -5,6 +5,10 @@ import '../../../core/space.dart';
 import '../../AI/car_page.dart';
 import '../../Health Care/darkmode.dart';
 import '../../Iot/final_design.dart';
+import 'package:eccat_car/Info/AIinfo.dart';
+import 'package:eccat_car/Info/IOTinfo.dart';
+import 'package:eccat_car/Info/Healthinfo.dart';
+import 'package:eccat_car/Info/Securityinfo.dart';
 import 'package:external_app_launcher/external_app_launcher.dart';
 
 class DriverStartPage extends StatefulWidget {
@@ -139,7 +143,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => const IoTPage()));
+                                  builder: (builder) => const IOTInfo()));
                         },
                         child: Container(
                           height: screenWidth > 480
@@ -202,7 +206,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => const Car_page()));
+                                  builder: (builder) => const AiInfo()));
                         },
                         child: Container(
                           height: screenWidth > 480
@@ -250,8 +254,7 @@ class _DriverStartPageState extends State<DriverStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) =>
-                                      const HealthCareDriver()));
+                                  builder: (builder) => const HealthInfo()));
                         },
                         child: Container(
                           height: screenWidth > 480
