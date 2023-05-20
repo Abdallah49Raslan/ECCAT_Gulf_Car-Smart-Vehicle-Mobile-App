@@ -49,9 +49,13 @@ class _Passenger1State extends State<Passenger1> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double childAspectvalue = 2;
+    double normalfontSize = 23;
+    double titlefontSize = 23;
     if (screenWidth > 480) {
       // If width is more than 480, set a new font value
       childAspectvalue = 2.5;
+      normalfontSize = 35;
+      titlefontSize = 35;
     }
     return Scaffold(
         backgroundColor: Colors.black,
@@ -100,7 +104,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     "Heart Rate",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: titlefontSize,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white),
                                   ),
@@ -125,7 +129,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     '$P1displayheartRate',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: normalfontSize,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -133,7 +137,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     " BPM",
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: normalfontSize,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -156,7 +160,7 @@ class _Passenger1State extends State<Passenger1> {
                                         Text(
                                           "60  : 100\nNormal",
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: normalfontSize,
                                             color: Colors.white,
                                           ),
                                         ),
@@ -183,7 +187,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     "Temperature",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: titlefontSize,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white),
                                   ),
@@ -208,7 +212,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     '$P1displaytemp',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: normalfontSize,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -216,7 +220,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     " °C",
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: normalfontSize,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -239,7 +243,7 @@ class _Passenger1State extends State<Passenger1> {
                                         Text(
                                           "36  : 37.2\nNormal",
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: normalfontSize,
                                             color: Colors.white,
                                           ),
                                         ),
@@ -266,7 +270,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     "Oximeter",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: titlefontSize,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white),
                                   ),
@@ -291,7 +295,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     '$P1displayoximeter',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: normalfontSize,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -299,7 +303,7 @@ class _Passenger1State extends State<Passenger1> {
                                   Text(
                                     " SPO2",
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: normalfontSize,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -322,7 +326,7 @@ class _Passenger1State extends State<Passenger1> {
                                         Text(
                                           "90  : 100\nNormal",
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: normalfontSize,
                                             color: Colors.white,
                                           ),
                                         ),
