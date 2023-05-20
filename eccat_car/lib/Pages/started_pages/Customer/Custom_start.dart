@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../core/colors.dart';
 import '../../../core/space.dart';
 import '../../Health Care/Passenger1.dart';
+import 'package:eccat_car/Info/AIinfo.dart';
+import 'package:eccat_car/Info/IOTinfo.dart';
+import 'package:eccat_car/Info/Healthinfo.dart';
+import 'package:eccat_car/Info/Securityinfo.dart';
 
 class CustomerStartPage extends StatefulWidget {
   const CustomerStartPage({super.key});
@@ -136,7 +140,7 @@ class _CustomerStartPageState extends State<CustomerStartPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => const Passenger1()));
+                                  builder: (builder) => const HealthInfo()));
                         },
                         child: Container(
                           height: screenWidth > 480
