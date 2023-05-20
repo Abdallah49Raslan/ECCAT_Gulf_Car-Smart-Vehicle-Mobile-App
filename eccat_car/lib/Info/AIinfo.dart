@@ -66,6 +66,7 @@ class _AiInfoState extends State<AiInfo> {
                       '-Detect unmarked and marked bumps from a distance between 30m-40m using Cumputer Vision and Deep Learning.\n\n-Lane assistance system using image processing to avoid the driver from get out the track.\n\n-Alert the driver if he gets out the lane or bump detected  ',
                       style: TextStyle(
                         fontSize: normalFontsize,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.justify,
                     ),

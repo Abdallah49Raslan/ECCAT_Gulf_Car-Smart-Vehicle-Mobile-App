@@ -73,6 +73,7 @@ class _SecurityInfoState extends State<SecurityInfo> {
                       '-The system works by integrating a fingerprint scanner with the cars entry and ignition systems, which will require the driver to scan their fingerprint to start the car',
                       style: TextStyle(
                         fontSize: normalFontsize,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.justify,
                     ),
@@ -100,6 +101,7 @@ class _SecurityInfoState extends State<SecurityInfo> {
                       '-Identify the driver of the vehicle.\n\n-If the driver is authorized, the entered user data is sent accordingly.\n\n-If the driver is not authorized, the app captures the photo and sends it to the owner for verification. ',
                       style: TextStyle(
                         fontSize: normalFontsize,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.justify,
                     ),

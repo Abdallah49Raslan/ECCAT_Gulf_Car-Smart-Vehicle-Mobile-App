@@ -66,6 +66,7 @@ class _HealthInfoState extends State<HealthInfo> {
                       'Health tracking for Driver and each passenger in the car to keep track of:\n-Heart rate\n-Temperature\n-Oximeter\n-Alcohol detection\n\nDisplay these vital values on application.\n\nGiving alert if any value is abnormal.',
                       style: TextStyle(
                         fontSize: normalFontsize,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.justify,
                     ),

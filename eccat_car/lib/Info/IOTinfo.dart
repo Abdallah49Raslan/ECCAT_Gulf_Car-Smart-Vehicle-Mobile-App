@@ -66,6 +66,7 @@ class _IOTInfoState extends State<IOTInfo> {
                       '-Keep track of the components of the car.\n\n-Display the current state of vehicle speed, battery charge, seat belt.\n\n-Warning the driver if anything went wrong.',
                       style: TextStyle(
                         fontSize: normalFontsize,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.justify,
                     ),
