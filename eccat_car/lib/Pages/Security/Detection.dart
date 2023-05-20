@@ -141,33 +141,6 @@ class _FingerprintPageState extends State<Detection> {
               ),
             ),
           ),
-           const Spacer(flex: 6),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        database.child('captureflag').update({
-                          'capture': '1',
-                        });
-
-                        Future.delayed(Duration(seconds: 5), () {
-                          database.child('captureflag').update({
-                            'capture': '0',
-                          });
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Captures()),
-                          );
-                        });
-                      },
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        size: 40,
-                      ),
-                      backgroundColor: Colors.blue,
-                    ),
-                  ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

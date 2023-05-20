@@ -107,7 +107,7 @@ void main() async {
             enableLights: true,
             enableVibration: true,
             importance: NotificationImportance.High,
-            ledColor: Colors.green)
+            ledColor: Colors.green),
       ]);
   await AwesomeNotifications().isNotificationAllowed().then((isAllowed) async {
     if (!isAllowed) {

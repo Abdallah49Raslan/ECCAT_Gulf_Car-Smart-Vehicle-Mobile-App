@@ -34,11 +34,11 @@ class _FaceRecoState extends State<FaceReco> {
     activateListeners();
   }
 
-  /*void playSound() async {
+  void playSampleSound() async {
     AudioPlayer player = AudioPlayer();
-    await player.setAsset('assets/Security.mp3');
+    await player.setAsset('assets/Security.MP3');
     player.play();
-  }*/
+  }
 
   void activateListeners() {
     outputstream1 = database.child('Security').onValue.listen((event) {
@@ -64,11 +64,11 @@ class _FaceRecoState extends State<FaceReco> {
               finger = '$fingerprint';
             });
           } else if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
-            //SecuritySound();
+            SecuritySound();
             AwesomeNotifications().createNotification(
                 content: NotificationContent(
               id: 30,
-              channelKey: "health",
+              channelKey: "schedule",
               title: "Worning",
               body: "Driver is unauthorized ",
               bigPicture:
@@ -92,7 +92,7 @@ class _FaceRecoState extends State<FaceReco> {
             AwesomeNotifications().createNotification(
                 content: NotificationContent(
               id: 30,
-              channelKey: "health",
+              channelKey: "schedule",
               title: "Welcome",
               body: "$welcomName",
               notificationLayout: NotificationLayout.BigPicture,
@@ -197,6 +197,33 @@ class _FaceRecoState extends State<FaceReco> {
                       ),
                     ),
                   ),
+                  const Spacer(flex: 6),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Captures()),
+                        );
+
+                        database.child('captureflag').update({
+                          'capture': '1',
+                        });
+
+                        Future.delayed(Duration(seconds: 5), () {
+                          database.child('captureflag').update({
+                            'capture': '0',
+                          });
+                        });
+                      },
+                      child: Icon(
+                        Icons.camera_alt_outlined,
+                        size: 40,
+                      ),
+                      backgroundColor: Colors.blue,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -206,9 +233,9 @@ class _FaceRecoState extends State<FaceReco> {
     );
   }
 
-  /*void SecuritySound() {
+  void SecuritySound() {
     if (unwelcomflag != null && unwelcomflag!.isNotEmpty) {
-      return playSound();
+      return playSampleSound();
     }
-  }*/
+  }
 }
