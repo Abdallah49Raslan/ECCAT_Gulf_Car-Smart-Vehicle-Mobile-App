@@ -43,3 +43,23 @@ The app supports three types of users, each with their own interface and functio
 | Firebase   | Real-time database & auth backend   |
 | IoT        | Sensor data integration             |
 | AI/Security| Handled by other groups in the project |
+
+
+## 📸 Screenshots
+
+| Home Screen | Drawer Menu |
+|-------------|-------------|
+| ![Home](screenshots/photo_5956437891259415896_y.jpg) | ![Drawer](screenshots/photo_5956437891259415899_y.jpg) |
+
+| IoT Data | Obstacle Alert |
+|----------|----------------|
+| ![IoT](screenshots/photo_5956437891259415900_y.jpg) | ![Obstacle](screenshots/photo_5956437891259415901_y.jpg) |
+
+| Profile Info | Data Search |
+|--------------|-------------|
+| ![Profile](screenshots/photo_5956437891259415902_y.jpg) | ![Search](screenshots/photo_5956437891259415903_y.jpg) |
+
+| Signup Page | App Landing |
+|-------------|-------------|
+| ![Signup](screenshots/WhatsApp Image 2023-05-06 at 02.43.52.jpg) | ![Landing](screenshots/WhatsApp Image 2023-05-06 at 02.43.52 (1).jpg) |
+
