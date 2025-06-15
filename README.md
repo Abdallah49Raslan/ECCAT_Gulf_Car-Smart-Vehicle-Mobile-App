@@ -59,7 +59,3 @@ The app supports three types of users, each with their own interface and functio
 |--------------|-------------|
 | ![Profile](screenshots/photo_5956437891259415902_y.jpg) | ![Search](screenshots/photo_5956437891259415903_y.jpg) |
 
-| Signup Page | App Landing |
-|-------------|-------------|
-| ![Signup](screenshots/WhatsApp Image 2023-05-06 at 02.43.52.jpg) | ![Landing](screenshots/WhatsApp Image 2023-05-06 at 02.43.52 (1).jpg) |
-
